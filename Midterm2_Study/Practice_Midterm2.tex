@@ -56,9 +56,9 @@ Partial credit is given for a correct setup.
 \toprule
 Problem & Topic & Points & Score\\
 \midrule
-1 & Short answers (PSSH, L--H, inhibition, deactivation) & 15 & \\
-2 & Active intermediates and the PSSH: ozone decomposition & 20 & \\
-3 & Enzyme kinetics, inhibition and a batch bioreactor & 25 & \\
+1 & Short answers and concepts (all lectures, incl.\ Lec.~10) & 25 & \\
+2 & Active intermediates and the PSSH: ozone decomposition & 15 & \\
+3 & Enzyme kinetics, inhibition and a batch bioreactor & 20 & \\
 4 & Heterogeneous catalysis: mechanism, data, reactor and deactivation & 40 & \\
 \midrule
  & \textbf{Total} & \textbf{100} & \\
@@ -70,7 +70,7 @@ Problem & Topic & Points & Score\\
 
 % =====================================================================
 \newpage
-\problem{1}{Short answers}\pts{15}
+\problem{1}{Short answers and concepts}\pts{25}
 
 \textbf{(a) [3]} The termination step of a free-radical chain is \ce{2CH3^{.} ->[k_5] C2H6}, with $k_5$ defined with
 respect to C$_2$H$_6$, so $r_{5,\mathrm{C_2H_6}}=k_5C_{\mathrm{CH_3\bullet}}^2$. Write the term that this step contributes
@@ -113,9 +113,35 @@ whether first-order or second-order decay fits these data. Name the deactivation
 and find the time at which $a=0.25$.
 \workspace{4cm}
 
+\newpage
+\textbf{(f) [3]} Explain what \emph{separable} deactivation kinetics means. Write the rate law of a decaying catalyst in
+separable form, define the activity $a(t)$, and state why the separable assumption is useful. Why do commercial
+reactors slowly raise their temperature over a catalyst's life?
+\workspace{4.2cm}
+
+\textbf{(g) [3]} For each situation, choose the most suitable reactor (packed bed, moving bed, or straight-through
+transport reactor) and give a one-line reason:
+\begin{enumerate}[label=(\roman*),itemsep=1pt]
+\item an Fe catalyst for NH$_3$ synthesis that stays active for several years;
+\item a cracking catalyst that is covered with coke within a few seconds;
+\item a catalyst that loses most of its activity over several hours and must be regenerated continuously without shutting the plant down.
+\end{enumerate}
+\workspace{4.2cm}
+
+\textbf{(h) [4]} For each case, name the deactivation mechanism (sintering, poisoning, or fouling/coking), say whether it
+is reversible, and suggest one way to prevent or reduce it:
+\begin{enumerate}[label=(\roman*),itemsep=1pt]
+\item a 13.5\% Ni/SiO$_2$ catalyst held at 750$^\circ$C loses about 70\% of its Ni surface area in 50 h;
+\item a Ni steam-reforming catalyst is fed natural gas containing a few ppm of H$_2$S;
+\item carbonaceous deposits cover the active sites of a zeolite cracking catalyst and plug its pores.
+\end{enumerate}
+Also explain in one sentence how O$_2$ can be a \emph{reactant} for ethylene oxidation on Ag but a \emph{poison} for
+ethylene hydrogenation on Ni.
+\workspace{5cm}
+
 % =====================================================================
 \newpage
-\problem{2}{Active intermediates: ozone decomposition}\pts{20}
+\problem{2}{Active intermediates: ozone decomposition}\pts{15}
 
 The gas-phase decomposition \ce{2O3 -> 3O2} is believed to go through atomic oxygen, O, as an active intermediate:
 \[
@@ -125,27 +151,27 @@ The gas-phase decomposition \ce{2O3 -> 3O2} is believed to go through atomic oxy
 \]
 All rate constants are defined with respect to the species O. Every step is elementary.
 
-\textbf{(a) [8]} Use the PSSH to derive the rate of disappearance of ozone, $-r_{\mathrm{O_3}}$, in terms of measurable
+\textbf{(a) [6]} Use the PSSH to derive the rate of disappearance of ozone, $-r_{\mathrm{O_3}}$, in terms of measurable
 concentrations only.
 \workspace{7.5cm}
 
-\textbf{(b) [5]} Experiments carried out in a large excess of O$_2$ give $-r_{\mathrm{O_3}}=k_{\text{obs}}\dfrac{C_{\mathrm{O_3}}^2}{C_{\mathrm{O_2}}}$.
+\textbf{(b) [4]} Experiments carried out in a large excess of O$_2$ give $-r_{\mathrm{O_3}}=k_{\text{obs}}\dfrac{C_{\mathrm{O_3}}^2}{C_{\mathrm{O_2}}}$.
 State the condition under which your result reduces to this form, and express $k_{\text{obs}}$ in terms of $k_1,k_2,k_3$.
 What rate law do you expect at the very start of a run that begins with pure ozone?
 \workspace{5cm}
 
 \newpage
-\textbf{(c) [4]} The activation energies of the elementary steps are $E_1=100$ kJ/mol, $E_2=2$ kJ/mol and $E_3=20$ kJ/mol.
+\textbf{(c) [3]} The activation energies of the elementary steps are $E_1=100$ kJ/mol, $E_2=2$ kJ/mol and $E_3=20$ kJ/mol.
 Find the apparent activation energy of $k_{\text{obs}}$. By what factor does $k_{\text{obs}}$ increase from 300 K to 310 K?
 \workspace{5cm}
 
-\textbf{(d) [3]} At a fixed, moderate O$_2$ concentration, sketch $-r_{\mathrm{O_3}}$ versus $C_{\mathrm{O_3}}$ over a wide range of
+\textbf{(d) [2]} At a fixed, moderate O$_2$ concentration, sketch $-r_{\mathrm{O_3}}$ versus $C_{\mathrm{O_3}}$ over a wide range of
 $C_{\mathrm{O_3}}$, and label the apparent reaction order in each region. Which elementary step limits the rate at high $C_{\mathrm{O_3}}$?
 \workspace{5cm}
 
 % =====================================================================
 \newpage
-\problem{3}{Enzyme kinetics, inhibition and a batch bioreactor}\pts{25}
+\problem{3}{Enzyme kinetics, inhibition and a batch bioreactor}\pts{20}
 
 An enzyme E converts substrate S to product P by the Michaelis--Menten mechanism
 \ce{E + S <=> E.S -> E + P}. The initial rates below were measured at the same total enzyme concentration, first with no
@@ -163,21 +189,21 @@ $-r_S$, with $C_I=4.0$ mmol/L (mmol/L/min) & 0.250 & 0.364 & 0.500 & 0.571 & 0.6
 \end{tabular}
 \end{center}
 
-\textbf{(a) [7]} In \emph{uncompetitive} inhibition, I binds only to the enzyme--substrate complex:
+\textbf{(a) [6]} In \emph{uncompetitive} inhibition, I binds only to the enzyme--substrate complex:
 \ce{E.S + I <=> I.E.S} (inactive), with $K_I=C_{E\cdot S}C_I/C_{I\cdot E\cdot S}$. Starting from the mechanism and the total enzyme
 balance, derive $-r_S$ for uncompetitive inhibition and write it in Lineweaver--Burk (reciprocal) form. State what happens to
 the slope and the intercept compared with no inhibition.
 \workspace{7cm}
 
 \newpage
-\textbf{(b) [6]} Using a Lineweaver--Burk analysis of the uninhibited data, find $V_{\max}$ and $K_M$ (with units).
+\textbf{(b) [5]} Using a Lineweaver--Burk analysis of the uninhibited data, find $V_{\max}$ and $K_M$ (with units).
 \workspace{6cm}
 
-\textbf{(c) [5]} Analyse the inhibited data the same way. Which type of inhibition is this? Find $K_I$.
+\textbf{(c) [4]} Analyse the inhibited data the same way. Which type of inhibition is this? Find $K_I$.
 \workspace{5.5cm}
 
 \newpage
-\textbf{(d) [7]} The same enzyme loading is used in a well-mixed, constant-volume batch reactor with $C_{S0}=20$ mmol/L.
+\textbf{(d) [5]} The same enzyme loading is used in a well-mixed, constant-volume batch reactor with $C_{S0}=20$ mmol/L.
 Starting from the mole balance, derive an expression for the time needed to reach conversion $X$, and compute the time for
 $X=0.90$ (i) with no inhibitor and (ii) with $C_I=4.0$ mmol/L held constant. Explain in one sentence why the inhibitor has
 almost no effect late in the batch, when $C_S$ is small.

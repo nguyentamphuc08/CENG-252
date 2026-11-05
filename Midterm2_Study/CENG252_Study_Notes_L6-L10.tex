@@ -1374,6 +1374,8 @@ Pb, Bi, Cl, F, S speed it up), and on pores (porous supports sinter more slowly)
 Sulfur is the classic poison in petrochemical processing.
 \item ``Poison'' has an operational meaning: O$_2$ is a \emph{reactant} for ethylene oxidation on Ag, but a \emph{poison} for
 ethylene hydrogenation on Ni. Poisons also change the electronic and geometric structure of the surface.
+\item Usually \textbf{irreversible}, so poisons are removed \emph{before} the reactor, e.g.\ hydrodesulfurisation or a
+ZnO guard bed upstream of a Ni steam reformer.
 \end{itemize}
 \begin{center}
 \begin{tikzpicture}[font=\scriptsize]
@@ -1433,6 +1435,7 @@ toxic heavy metals (As, Pb, Hg, Zn, Cu\ldots) occupy d-orbitals and may form all
 site is accessible depends on the pore-size distribution.
 \item \textbf{Reversible}: coke can be burned off (regeneration). This is why moving beds and FCC risers have a regenerator.
 The burn-off is strongly exothermic, and the heat is recovered (it drives the endothermic cracking and makes steam).
+Coke formation can also be reduced by co-feeding H$_2$ or steam (which gasify carbon) or by lowering $T$.
 \end{itemize}
 \begin{keyresult}[Coking]
 Coke on the surface follows an empirical law, $C_c=At^n$ ($A$ and $n$ depend on the feed). The activity is then one of
@@ -1450,6 +1453,23 @@ the dominant path depends on $T$.
 \ce{Fe -> FeO} (NH$_3$ catalyst with $>$50~ppm O$_2$ or H$_2$O/H$_2>0.16$),
 \ce{SO3 + Al2O3 -> Al2(SO4)3} (blocks pores), \ce{Ni + Al2O3 -> NiAl2O4} (steam reforming),
 \ce{Co + SiO2 -> CoO.SiO2} (F--T), and H$_2$O-induced dealumination of zeolites.
+
+\subsection{Comparing the three mechanisms (conceptual exam questions)}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{2.3cm} p{4.1cm} p{2.0cm} p{2.1cm} p{4.0cm}}
+\toprule
+Mechanism & What happens & Reversible? & Typical $a(t)$ & Prevention / cure\\
+\midrule
+Sintering & crystallites grow, pores collapse, active area lost (high $T$) & no & $\dfrac{1}{1+k_dt}$ & lower $T$; stable support; trapping promoters (BaO, CaO, SrO)\\
+Poisoning & strong chemisorption of an impurity, reactant or product on sites & usually no & $[1-(1-q)k_d't]^{\frac{1}{1-q}}$ & remove the poison upstream (guard bed, desulfurisation)\\
+Fouling / coking & carbon covers sites and blocks pores & yes (burn-off) & $\dfrac{1}{1+A^pt^{np}}$ & regenerate (moving bed, riser); add H$_2$/steam\\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Reactor choice follows the decay time scale:} years, packed bed; hours to days, moving bed with a regenerator;
+seconds, STTR or riser (catalyst and feed travel together, so there is no ``decay disguise'').
 
 \subsection{Summary of decay laws}
 \begin{center}

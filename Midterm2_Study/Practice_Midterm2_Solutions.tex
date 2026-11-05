@@ -54,7 +54,7 @@ Problem & Final answers & Similar to\\
 \midrule
 1 & (a) $-2k_5C_{\mathrm{CH_3\bullet}}^2$; (b) H$_2$ dissociative, A molecular, dual-site RLS, B weakly adsorbed;
 (c) X competitive, Y uncompetitive, only X; (d) (i) dual-site, (ii) adsorption, (iii) single-site;
-(e) 2nd order, $k_d=0.025$ h$^{-1}$, sintering, $t=120$ h & L6--L10\\
+(e) 2nd order, $k_d=0.025$ h$^{-1}$, sintering, $t=120$ h; (f) $-r_A'=a(t)(-r_A')_{\text{fresh}}$; (g) PBR, STTR, moving bed; (h) sintering (irreversible), S poisoning (irreversible), coking (reversible) & L6--L10\\
 2 & $-r_{\mathrm{O_3}}=\dfrac{2k_1k_3\Oz^2}{k_2\Ot+k_3\Oz}$; $k_{\text{obs}}=2k_1k_3/k_2$; initially $2k_1\Oz$;
 $E_{\text{app}}=118$ kJ/mol, factor 4.60 & L6 Ex.~1, L6 NO, HW3-2\\
 3 & uncompetitive rate law; $V_{\max}=2.0$ mmol/L/min, $K_M=5.0$ mmol/L; uncompetitive, $K_I=2.0$ mmol/L;
@@ -67,7 +67,7 @@ $a=0.5$, $F_{A0}=5.0$ mol/s, $T=518.7$ K & L8--L10, HW3-4, HW3-5\\
 \end{center}
 
 % =====================================================================
-\section*{Problem 1: Short answers (15 pts)}
+\section*{Problem 1: Short answers and concepts (25 pts)}
 
 \subsection*{(a) Stoichiometric factor in a PSSH balance}
 By relative rates for \ce{2CH3^{.} -> C2H6}: $\dfrac{r_{5,\mathrm{CH_3\bullet}}}{-2}=\dfrac{r_{5,\mathrm{C_2H_6}}}{1}$, so
@@ -126,13 +126,65 @@ Test both forms. The rate constant must be the same at both times:
 For $a=0.25$: $1/a-1=3=k_dt\Rightarrow t=3/0.025=$ \textbf{120 h}.
 \end{answer}
 
+
+
+\subsection*{(f) Separable deactivation kinetics}
+\begin{answer}
+Kinetics are \textbf{separable} when the catalyst's history affects the rate only through one multiplying factor, the
+activity, and not through the form of the rate law:
+\[
+-r_A'=a(t)\times\left(-r_A'\right)_{\text{fresh}}=a(t)\,k(T)\,f(C_i),\qquad a(t)=\frac{-r_A'(t)}{-r_A'(t=0)},\quad a(0)=1,
+\]
+with a separate decay law $r_d=-\dfrac{da}{dt}=p(a)\,k_d(T)\,h(C_i)$.
+\textbf{Why it is useful:} the intrinsic kinetics (on fresh catalyst) and the decay law can be measured and modelled
+\emph{independently}, and then simply multiplied in the design equation. (Non-separable: $-r_A'=f(\text{history},\text{kinetics})$,
+which cannot be split.)
+\textbf{Raising $T$:} as $a$ falls, plants increase $T$ so that $k(T)$ rises and $a\,k(T)$, and hence the production rate, stays constant.
+\end{answer}
+
+\subsection*{(g) Choosing the reactor by decay time scale}
+\begin{answer}
+\begin{enumerate}[label=(\roman*),itemsep=1pt]
+\item \textbf{Packed bed.} Decay is very slow, so the catalyst can stay fixed for years. A PBR gives the highest
+conversion per mass of catalyst, and the catalyst is replaced at rare shutdowns.
+\item \textbf{Straight-through transport reactor (riser).} Catalyst and feed enter together and pass through in seconds,
+so every reacting molecule sees fresh catalyst (there is no ``decay disguise''). The spent catalyst goes straight to a regenerator.
+\item \textbf{Moving bed.} The catalyst moves slowly through the reactor, is withdrawn continuously to a regenerator
+(coke burn-off), and returns. The activity in the bed stays steady and the plant never stops.
+\end{enumerate}
+Rule of thumb: the faster the decay, the more the catalyst must move (years: PBR; hours to days: moving bed; seconds: STTR or fluidised riser).
+\end{answer}
+
+\subsection*{(h) Classifying deactivation}
+\begin{answer}
+\begin{enumerate}[label=(\roman*),itemsep=1pt]
+\item \textbf{Sintering} (thermal degradation): crystallites grow, and the Ni area and the support area are lost.
+\textbf{Irreversible}, so it is prevented rather than cured. Remedy: run at a lower $T$, or use a thermally stable support
+(Al$_2$O$_3$ $>$ SiO$_2$ $>$ C), a non-oxidising atmosphere, a porous support, or trapping promoters (BaO, CaO, SrO).
+\item \textbf{Poisoning} by sulfur: H$_2$S chemisorbs strongly on the Ni sites. Essentially \textbf{irreversible}.
+Remedy: remove the sulfur upstream (hydrodesulfurisation or a ZnO guard bed) before the reformer.
+\item \textbf{Fouling/coking}: coke has two effects, \emph{site coverage} and \emph{pore blockage} (diffusion resistance).
+\textbf{Reversible}: burn the coke off in a regenerator (moving bed, FCC). It can also be reduced by co-feeding H$_2$
+or steam, or by lowering $T$.
+\end{enumerate}
+\textbf{O$_2$:} ``poison'' has an \emph{operational} meaning. On Ag, adsorbed O is the reactant that makes ethylene oxide.
+On Ni, O$_2$ adsorbs more strongly than H$_2$ and ethylene, blocking the sites they need, so it acts as a poison.
+\end{answer}
+
+\begin{keyidea}
+Lecture 10 is largely descriptive, so expect at least one question like (f)--(h): know the four reactor types, the three
+deactivation mechanisms, and which ones are reversible.
+\end{keyidea}
+
 \begin{grading}
-3 pts each. (a): 2 for the factor of 2, 1 for the reason. (b): 1 per correct conclusion. (c): 1 + 1 for the names, 1 for the reasoning.
+(a)--(e) 3 pts each, (f)--(g) 3 pts, (h) 4 pts. (a): 2 for the factor of 2, 1 for the reason. (b): 1 per correct conclusion. (c): 1 + 1 for the names, 1 for the reasoning.
 (d): 1 per correct match with a reason. (e): 1 for the test, 1 for $k_d$ and the mechanism, 1 for 120 h.
+(f): 1 for the definition, 1 for the rate law with $a(t)$, 1 for why it is useful and why $T$ is raised.
+(g): 1 per correct reactor with a reason. (h): 1 per correctly classified case (mechanism, reversibility, remedy), 1 for the O$_2$ sentence.
 \end{grading}
 
 % =====================================================================
-\section*{Problem 2: Ozone decomposition (20 pts)}
+\section*{Problem 2: Ozone decomposition (15 pts)}
 
 \subsection*{(a) PSSH derivation}
 \step{1}\textbf{Rate of each step, written for O} (every $k$ is w.r.t.\ O, and every coefficient of O is 1):
@@ -216,13 +268,13 @@ decomposition \ce{O3 -> O2 + O}. This is the same behaviour as the Lindemann exa
 \end{answer}
 
 \begin{grading}
-(a) 2 for the step rates written for O, 2 for the PSSH and $C_{\mathrm{O}}$, 2 for the net O$_3$ rate with all three steps,
-2 for the final simplification. (b) 2 for the condition, 2 for $k_{\text{obs}}$, 1 for the initial first order.
-(c) 2 + 2. (d) 2 for the sketch with orders, 1 for step 1.
+(a) 1 for the step rates written for O, 2 for the PSSH and $C_{\mathrm{O}}$, 2 for the net O$_3$ rate with all three steps,
+1 for the final simplification. (b) 1 for the condition, 2 for $k_{\text{obs}}$, 1 for the initial first order.
+(c) 2 for $E_{\text{app}}$, 1 for the factor. (d) 1 for the sketch with orders, 1 for step 1.
 \end{grading}
 
 % =====================================================================
-\section*{Problem 3: Enzyme kinetics (25 pts)}
+\section*{Problem 3: Enzyme kinetics (20 pts)}
 
 \subsection*{(a) Uncompetitive inhibition}
 Mechanism: \ce{E + S <=>[k_1][k_2] E.S ->[k_3] E + P}, \ce{E.S + I <=> I.E.S} (inactive, $K_I$).
@@ -321,9 +373,9 @@ For a competitive inhibitor it would be the $\ln$ term that is multiplied by $\p
 \end{mistake}
 
 \begin{grading}
-(a) 2 for the complexes in terms of $C_E$, 2 for the enzyme balance, 2 for the rate law, 1 for the L--B form and its
-interpretation. (b) 2 for the reciprocals, 2 for the slope and intercept, 2 for $V_{\max}$ and $K_M$ with units.
-(c) 3 for the type with a reason, 2 for $K_I$. (d) 3 for the derivation, 2 + 1 for the times, 1 for the explanation.
+(a) 2 for the complexes in terms of $C_E$, 2 for the enzyme balance, 1 for the rate law, 1 for the L--B form and its
+interpretation. (b) 2 for the reciprocals, 1 for the slope and intercept, 2 for $V_{\max}$ and $K_M$ with units.
+(c) 2 for the type with a reason, 2 for $K_I$. (d) 2 for the derivation, 1 + 1 for the times, 1 for the explanation.
 Answers within $\pm3\%$ from reading a hand-drawn line are full credit.
 \end{grading}
 
