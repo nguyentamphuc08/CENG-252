@@ -1,14 +1,13 @@
 % =====================================================================
-%  CENG 252 -- Practice Midterm 2 (Lectures 6--10)
-%  Compile with pdflatex.  Solutions: Practice_Midterm2_Solutions.tex
+%  CENG 252 -- Practice Midterm 2 (Lectures 1--10)
+%  Built from the instructor's Midterm 2 announcement:
+%    energy balance (Ch. 11), Ch. 9.1--9.3, Ch. 10 (10.3 cumene and 10.5.2 CVD very important)
+%  Compile with pdflatex (twice).  Solutions: Practice_Midterm2_Solutions.tex
 % =====================================================================
 \documentclass[11pt]{article}
 \usepackage[margin=2.2cm,headheight=14pt]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage[version=4]{mhchem}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.17}
 \usepackage[most]{tcolorbox}
 \usepackage{booktabs,array}
 \usepackage{enumitem}
@@ -16,7 +15,6 @@
 \usepackage{lastpage}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
-\usepackage{multicol}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
@@ -35,33 +33,33 @@
 
 \begin{center}
 {\LARGE\bfseries CENG 252: Chemical Reaction Engineering}\\[6pt]
-{\Large Practice Midterm 2 (Lectures 6--10)}\\[4pt]
+{\Large Practice Midterm 2 (Lectures 1--10)}\\[4pt]
 Time: 1 hour 20 minutes \quad\textbullet\quad Total: 100 points
 \end{center}
 
 \begin{tcolorbox}[colback=white,colframe=black!70,title=\textbf{Instructions},fonttitle=\bfseries]
 \begin{itemize}[itemsep=2pt]
 \item Closed book, closed notes, no cheat sheet. A formula sheet is provided on the last page. Only a simple scientific calculator.
-\item \textbf{Show all work.} For mechanisms: write every elementary step's rate law, state which species each $k$ refers to,
-apply the PSSH or the equilibrium of the fast steps, and write the conservation (enzyme or site) balance \emph{before} simplifying.
-Partial credit is given for a correct setup.
+\item \textbf{Show all work.} Write the mole balance, rate law, stoichiometry and energy balance before plugging in numbers.
+For mechanisms, write each step's rate law, put the fast steps at equilibrium (or apply the PSSH), and write the site
+(or area) balance before simplifying. Partial credit is given for a correct setup.
 \item State every assumption. Box your final answers and include units.
-\item Budget your time: about 0.8 minutes per point (16 minutes for a 20-point problem).
+\item The suggested times add up to about 65 minutes, which leaves about 15 minutes to check your work.
 \end{itemize}
 \end{tcolorbox}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.35}
-\begin{tabular}{clcc}
+\begin{tabular}{clccc}
 \toprule
-Problem & Topic & Points & Score\\
+Problem & Topic & Points & Suggested time & Score\\
 \midrule
-1 & Short answers and concepts (all lectures, incl.\ Lec.~10) & 25 & \\
-2 & Active intermediates and the PSSH: ozone decomposition & 15 & \\
-3 & Enzyme kinetics, inhibition and a batch bioreactor & 20 & \\
-4 & Heterogeneous catalysis: mechanism, data, reactor and deactivation & 40 & \\
+1 & Energy balance (adiabatic CSTR) & 25 & 18 min & \\
+2 & Reaction pathways and enzymes & 20 & 13 min & \\
+3 & Cumene decomposition (\S10.3) & 30 & 20 min & \\
+4 & CVD of germanium (\S10.5.2) & 25 & 14 min & \\
 \midrule
- & \textbf{Total} & \textbf{100} & \\
+ & \textbf{Total} & \textbf{100} & 65 min & \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -70,225 +68,183 @@ Problem & Topic & Points & Score\\
 
 % =====================================================================
 \newpage
-\problem{1}{Short answers and concepts}\pts{25}
+\problem{1}{Energy balance: adiabatic CSTR}\pts{25}
 
-\textbf{(a) [3]} The termination step of a free-radical chain is \ce{2CH3^{.} ->[k_5] C2H6}, with $k_5$ defined with
-respect to C$_2$H$_6$, so $r_{5,\mathrm{C_2H_6}}=k_5C_{\mathrm{CH_3\bullet}}^2$. Write the term that this step contributes
-to the PSSH balance for CH$_3\bullet$. Explain the factor.
+The elementary, reversible liquid-phase isomerisation
+\[
+\ce{A <=> B},\qquad -r_A=k\left(C_A-\frac{C_B}{K_C}\right)
+\]
+is carried out adiabatically in a CSTR. The feed, 125 mol/min, contains 80 mol\% A and 20 mol\% of an inert solvent I.
+It enters at $T_0=300$ K with $C_{A0}=2.0$ mol/dm$^3$ (no B in the feed).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{ll}
+\toprule
+Heats of formation at 298 K & $H_A^\circ=-35{,}000$ cal/mol, \quad $H_B^\circ=-41{,}000$ cal/mol\\
+Heat capacities & $C_{P,A}=C_{P,B}=C_{P,I}=40$ cal/(mol$\cdot$K)\\
+Kinetics & $k=0.005$ min$^{-1}$ at 300 K, \quad $E=15{,}000$ cal/mol\\
+Equilibrium & $K_C=30$ at 300 K\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(a) [3]} Calculate $\Delta H^\circ_{Rx}$ and $\Delta C_P$. Does the heat of reaction change with temperature here? Why?
 \workspace{3.2cm}
 
-\textbf{(b) [3]} A catalytic hydrogenation \ce{A + H2 -> B} has the measured rate law
-\[
--r_A'=\frac{k\,P_A\,P_{\mathrm{H_2}}^{1/2}}{\left(1+K_AP_A+\sqrt{K_{\mathrm{H}}P_{\mathrm{H_2}}}\right)^2}.
-\]
-Give three conclusions about the mechanism that you can read directly from this expression.
-\workspace{3.6cm}
-
-\textbf{(c) [3]} Two inhibitors each lower the rate of an enzyme reaction. With inhibitor X, the Lineweaver--Burk line keeps
-the same intercept but becomes steeper. With inhibitor Y, the line shifts up parallel to the original. Name each
-type. For which one can the original $V_{\max}$ still be reached by adding a large excess of substrate? Why?
-\workspace{3.6cm}
-
-\newpage
-\textbf{(d) [3]} The initial rate of \ce{A -> B} over a solid catalyst was measured against the feed pressure of pure A for three
-different catalysts. Match each curve (i), (ii), (iii) to its rate-limiting step (adsorption of A, single-site surface
-reaction, or dual-site surface reaction), and give one sentence of justification for each.
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[width=9cm,height=5.5cm,xmin=0,xmax=10,ymin=0,ymax=2.2,axis lines=left,
-  xlabel={$P_{A0}$},ylabel={$-r_{A0}'$},ticks=none]
-\addplot[very thick,domain=0:10,samples=80]{6*x/(1+0.6*x)^2*0.55};
-\node at (axis cs:3.0,1.55) {(i)};
-\addplot[very thick,dashed,domain=0:10]{0.2*x};
-\node at (axis cs:8.4,2.02) {(ii)};
-\addplot[very thick,dotted,domain=0:10,samples=80]{1.8*x/(1+1.0*x)};
-\node at (axis cs:7.5,1.30) {(iii)};
-\end{axis}
-\end{tikzpicture}
-\end{center}
-\workspace{2.8cm}
-
-\textbf{(e) [3]} The activity of a reforming catalyst was measured as $a=0.80$ after 10 h and $a=0.50$ after 40 h. Show
-whether first-order or second-order decay fits these data. Name the deactivation mechanism that usually gives this order,
-and find the time at which $a=0.25$.
-\workspace{4cm}
-
-\newpage
-\textbf{(f) [3]} Explain what \emph{separable} deactivation kinetics means. Write the rate law of a decaying catalyst in
-separable form, define the activity $a(t)$, and state why the separable assumption is useful. Why do commercial
-reactors slowly raise their temperature over a catalyst's life?
-\workspace{4.2cm}
-
-\textbf{(g) [3]} For each situation, choose the most suitable reactor (packed bed, moving bed, or straight-through
-transport reactor) and give a one-line reason:
-\begin{enumerate}[label=(\roman*),itemsep=1pt]
-\item an Fe catalyst for NH$_3$ synthesis that stays active for several years;
-\item a cracking catalyst that is covered with coke within a few seconds;
-\item a catalyst that loses most of its activity over several hours and must be regenerated continuously without shutting the plant down.
-\end{enumerate}
-\workspace{4.2cm}
-
-\textbf{(h) [4]} For each case, name the deactivation mechanism (sintering, poisoning, or fouling/coking), say whether it
-is reversible, and suggest one way to prevent or reduce it:
-\begin{enumerate}[label=(\roman*),itemsep=1pt]
-\item a 13.5\% Ni/SiO$_2$ catalyst held at 750$^\circ$C loses about 70\% of its Ni surface area in 50 h;
-\item a Ni steam-reforming catalyst is fed natural gas containing a few ppm of H$_2$S;
-\item carbonaceous deposits cover the active sites of a zeolite cracking catalyst and plug its pores.
-\end{enumerate}
-Also explain in one sentence how O$_2$ can be a \emph{reactant} for ethylene oxidation on Ag but a \emph{poison} for
-ethylene hydrogenation on Ni.
-\workspace{5cm}
-
-% =====================================================================
-\newpage
-\problem{2}{Active intermediates: ozone decomposition}\pts{15}
-
-The gas-phase decomposition \ce{2O3 -> 3O2} is believed to go through atomic oxygen, O, as an active intermediate:
-\[
-\text{(1)}\ \ce{O3 ->[k_1] O2 + O}\qquad
-\text{(2)}\ \ce{O2 + O ->[k_2] O3}\qquad
-\text{(3)}\ \ce{O + O3 ->[k_3] 2O2}
-\]
-All rate constants are defined with respect to the species O. Every step is elementary.
-
-\textbf{(a) [6]} Use the PSSH to derive the rate of disappearance of ozone, $-r_{\mathrm{O_3}}$, in terms of measurable
-concentrations only.
-\workspace{7.5cm}
-
-\textbf{(b) [4]} Experiments carried out in a large excess of O$_2$ give $-r_{\mathrm{O_3}}=k_{\text{obs}}\dfrac{C_{\mathrm{O_3}}^2}{C_{\mathrm{O_2}}}$.
-State the condition under which your result reduces to this form, and express $k_{\text{obs}}$ in terms of $k_1,k_2,k_3$.
-What rate law do you expect at the very start of a run that begins with pure ozone?
-\workspace{5cm}
-
-\newpage
-\textbf{(c) [3]} The activation energies of the elementary steps are $E_1=100$ kJ/mol, $E_2=2$ kJ/mol and $E_3=20$ kJ/mol.
-Find the apparent activation energy of $k_{\text{obs}}$. By what factor does $k_{\text{obs}}$ increase from 300 K to 310 K?
-\workspace{5cm}
-
-\textbf{(d) [2]} At a fixed, moderate O$_2$ concentration, sketch $-r_{\mathrm{O_3}}$ versus $C_{\mathrm{O_3}}$ over a wide range of
-$C_{\mathrm{O_3}}$, and label the apparent reaction order in each region. Which elementary step limits the rate at high $C_{\mathrm{O_3}}$?
-\workspace{5cm}
-
-% =====================================================================
-\newpage
-\problem{3}{Enzyme kinetics, inhibition and a batch bioreactor}\pts{20}
-
-An enzyme E converts substrate S to product P by the Michaelis--Menten mechanism
-\ce{E + S <=> E.S -> E + P}. The initial rates below were measured at the same total enzyme concentration, first with no
-inhibitor and then with an inhibitor I at $C_I=4.0$ mmol/L.
-
-\begin{center}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{lccccc}
-\toprule
-$C_S$ (mmol/L) & 1.0 & 2.0 & 5.0 & 10.0 & 20.0\\
-\midrule
-$-r_S$, no inhibitor (mmol/L/min) & 0.333 & 0.571 & 1.000 & 1.333 & 1.600\\
-$-r_S$, with $C_I=4.0$ mmol/L (mmol/L/min) & 0.250 & 0.364 & 0.500 & 0.571 & 0.615\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\textbf{(a) [6]} In \emph{uncompetitive} inhibition, I binds only to the enzyme--substrate complex:
-\ce{E.S + I <=> I.E.S} (inactive), with $K_I=C_{E\cdot S}C_I/C_{I\cdot E\cdot S}$. Starting from the mechanism and the total enzyme
-balance, derive $-r_S$ for uncompetitive inhibition and write it in Lineweaver--Burk (reciprocal) form. State what happens to
-the slope and the intercept compared with no inhibition.
-\workspace{7cm}
-
-\newpage
-\textbf{(b) [5]} Using a Lineweaver--Burk analysis of the uninhibited data, find $V_{\max}$ and $K_M$ (with units).
+\textbf{(b) [6]} Starting from the steady-state energy balance on the formula sheet, derive the adiabatic relation between
+$T$ and $X$ for this feed (including the inert), and evaluate it numerically.
 \workspace{6cm}
 
-\textbf{(c) [4]} Analyse the inhibited data the same way. Which type of inhibition is this? Find $K_I$.
-\workspace{5.5cm}
-
 \newpage
-\textbf{(d) [5]} The same enzyme loading is used in a well-mixed, constant-volume batch reactor with $C_{S0}=20$ mmol/L.
-Starting from the mole balance, derive an expression for the time needed to reach conversion $X$, and compute the time for
-$X=0.90$ (i) with no inhibitor and (ii) with $C_I=4.0$ mmol/L held constant. Explain in one sentence why the inhibitor has
-almost no effect late in the batch, when $C_S$ is small.
-\workspace{9cm}
+\textbf{(c) [10]} Find the CSTR volume needed to reach $X=0.60$. Show the exit temperature, $k$, $K_C$ and the equilibrium
+conversion at that temperature, and confirm that $X=0.60$ is attainable.
+\workspace{9.5cm}
+
+\textbf{(d) [6]} (i) Show with a short calculation that no adiabatic reactor of any size can reach $X=0.80$ with this feed.
+(ii) Sketch $X$ versus $T$, showing the equilibrium curve $X_e(T)$ and the energy-balance line, and mark the adiabatic
+equilibrium point. \emph{Do not calculate it.} Name two changes to the process that would raise the highest conversion
+that can be reached.
+\workspace{7cm}
 
 % =====================================================================
 \newpage
-\problem{4}{Heterogeneous catalysis: from mechanism to reactor}\pts{40}
+\problem{2}{Reaction pathways and enzyme kinetics}\pts{20}
 
-The gas-phase dehydration of an alcohol A to an olefin B and water W, \ce{A -> B + W}, is carried out over a solid acid
-catalyst at 500 K. The proposed mechanism is
-\[
-\text{(1)}\ \ce{A + S <=> A.S}\qquad
-\text{(2)}\ \ce{A.S + S -> B.S + W.S}\qquad
-\text{(3)}\ \ce{B.S <=> B + S}\qquad
-\text{(4)}\ \ce{W.S <=> W + S}
-\]
-Step (2) is irreversible. Use adsorption equilibrium constants $K_A$, $K_B$, $K_W$, and $C_t$ for the total site concentration.
+\textbf{Part A: Fluorescence quenching.} The fluorescence of a dye D in water falls when dissolved O$_2$ (Q) is
+present. The proposed mechanism is
+\begin{align*}
+&\text{(1) excitation:} && \ce{D -> D^*} && \text{rate } r_1=I_a\ \text{(constant for a fixed lamp)}\\
+&\text{(2) deactivation by solvent:} && \ce{D^* + M ->[k_2] D + M}\\
+&\text{(3) quenching by O}_2\text{:} && \ce{D^* + Q ->[k_3] D + Q}\\
+&\text{(4) fluorescence:} && \ce{D^* ->[k_4] D}+h\nu'
+\end{align*}
+The measured light intensity is $I=k_4C_{D^*}$. Let $I_0$ be the intensity without O$_2$.
 
-\textbf{(a) [8]} Derive the rate law $-r_A'$ assuming the surface reaction (2) is rate-limiting. Show the site balance.
+\textbf{(a) [7]} Use the PSSH on D$^*$ to show that $\dfrac{I_0}{I}=1+k'C_Q$, and express $k'$ in terms of the rate constants.
+Explain why $I_a$ does not appear in the result.
+\workspace{6.5cm}
+
+\textbf{(b) [3]} At $C_Q=3.0$ mmol/L, $I_0/I=2.5$. Find $k'$, and the O$_2$ concentration at which the intensity falls to one quarter of $I_0$.
+\workspace{3.5cm}
+
+\newpage
+\textbf{Part B: Enzyme kinetics.} An enzyme (1.0 g/L) converts substrate S by Michaelis--Menten kinetics. Initial rates:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcccc}
+\toprule
+$C_S$ (mmol/L) & 1.0 & 2.0 & 4.0 & 8.0\\
+$-r_S$ (mmol/L/min) & 0.400 & 0.667 & 1.000 & 1.333\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(c) [4]} Use a Lineweaver--Burk analysis to find $V_{\max}$ and $K_M$ (with units).
+\workspace{5cm}
+
+\textbf{(d) [6]} The same enzyme is used at \textbf{0.50 g/L} in a constant-volume batch reactor with $C_{S0}=20$ mmol/L.
+Starting from the mole balance, derive the time needed to reach conversion $X$, and calculate the time for $X=0.90$.
+State which Michaelis--Menten parameter changes with the enzyme loading, and why.
 \workspace{7cm}
 
-\textbf{(b) [6]} Derive the rate law assuming instead that the adsorption of A (step 1) is rate-limiting. (Hint: what does
-``fast and irreversible'' imply for $C_{\AS{A}}$?) Write the initial rate for each of the two cases, (a) and (b).
+% =====================================================================
+\newpage
+\problem{3}{Cumene decomposition over Pt}\pts{30}
+
+Cumene (C) decomposes to benzene (B) and propylene (P) over a Pt catalyst, \ce{C -> B + P}. The proposed mechanism
+(single site; propylene goes directly to the gas and is not adsorbed) is
+\[
+\text{(1) } \ce{C + S <=> C.S}\ (K_C)\qquad
+\text{(2) } \ce{C.S <=> B.S + P(g)}\ (K_S)\qquad
+\text{(3) } \ce{B.S <=> B + S}\ (K_B)
+\]
+with overall equilibrium constant $K_P=K_CK_S/K_B$ and total site concentration $C_t$.
+
+\textbf{(a) [8]} Derive the rate law $-r_C'$ assuming the surface reaction (2) is rate-limiting. Show the site balance.
+\workspace{7.5cm}
+
+\textbf{(b) [6]} If instead adsorption or desorption were rate-limiting, the rate laws would be
+\begin{align*}
+\text{adsorption-limited:}\quad & -r_C'=\frac{C_tk_A\left(P_C-P_BP_P/K_P\right)}{1+K_BP_BP_P/K_S+K_BP_B},\\
+\text{desorption-limited:}\quad & -r_C'=\frac{k_DC_tK_SK_C\left(P_C-P_BP_P/K_P\right)}{P_P+P_PK_CP_C+K_SK_CP_C}.
+\end{align*}
+For a feed of pure cumene, write the \emph{initial} rate $-r_{C0}'$ for all three rate-limiting steps, and sketch
+$-r_{C0}'$ against $P_{C0}$ for each one on the same axes.
 \workspace{5.5cm}
 
 \newpage
-\textbf{(c) [9]} Initial rates measured with pure A in the feed (no B or W present) are:
+\textbf{(c) [8]} Initial rates measured with pure cumene are:
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{lccccc}
 \toprule
-$P_{A0}$ (atm) & 0.5 & 1.0 & 2.0 & 4.0 & 8.0\\
-\midrule
-$-r_{A0}'$ (mol/kg cat/s) & 0.160 & 0.222 & 0.250 & 0.222 & 0.160\\
+$P_{C0}$ (atm) & 0.5 & 1.0 & 2.0 & 4.0 & 8.0\\
+$-r_{C0}'$ (mol/kg cat/s) & 0.167 & 0.250 & 0.333 & 0.400 & 0.444\\
 \bottomrule
 \end{tabular}
 \end{center}
-Which of your rate laws, (a) or (b), is consistent with these data? Explain. Using a suitable linearisation, determine the
-lumped rate constant $k$ (with units) and $K_A$.
-\workspace{8cm}
+Which rate-limiting step is consistent with these data? Explain. Using a suitable linearisation, find the lumped rate
+constant $k$ (with units) and $K_C$.
+\workspace{7.5cm}
+
+\textbf{(d) [8]} Pure cumene is fed at $F_{C0}=10$ mol/s and $P_0=3$ atm to an isothermal fluidised-bed reactor that behaves as a CSTR, with
+no pressure drop. Under these conditions the reverse reaction is negligible. Benzene adsorbs with $K_B=1.0$ atm$^{-1}$.
+Find the catalyst mass needed for $X=0.50$. By what factor would you have underestimated the catalyst mass if you had ignored
+the adsorption of benzene? Why?
+\workspace{7cm}
+
+% =====================================================================
+\newpage
+\problem{4}{Chemical vapour deposition of germanium}\pts{25}
+
+Germanium films are grown from GeCl$_4$ and H$_2$. The proposed mechanism is
+\[
+\begin{aligned}
+&\text{gas-phase equilibrium: } \ce{GeCl4(g) <=> GeCl2(g) + Cl2(g)}\ \ (K_P)\\
+&\text{adsorption (fast): } \ce{GeCl2(g) + S <=> GeCl2.S}\ \ (K_A)\\
+&\text{dissociative adsorption (fast): } \ce{H2 + 2S <=> 2H.S}\ \ (K_H)\\
+&\text{surface reaction (rate-limiting): } \ce{GeCl2.S + 2H.S -> Ge(s) + 2HCl(g) + 2S}\\
+&\text{with rate } r''_{\text{Dep}}=k_Sf_{\mathrm{GeCl_2}}f_{\mathrm{H}}^2
+\end{aligned}
+\]
+The surface is described by area fractions: vacant $f_v$, covered by GeCl$_2$ $f_{\mathrm{GeCl_2}}$, and covered by H atoms $f_{\mathrm{H}}$.
+
+\textbf{(a) [10]} Derive the deposition rate $r''_{\text{Dep}}$ in terms of $P_{\mathrm{GeCl_2}}$ and $P_{\mathrm{H_2}}$.
+\workspace{8.5cm}
+
+\textbf{(b) [5]} Use the gas-phase equilibrium to rewrite your rate law in terms of $P_{\mathrm{GeCl_4}}$ and $P_{\mathrm{Cl_2}}$.
+Explain why adding Cl$_2$ to the feed slows down the deposition.
+\workspace{5cm}
 
 \newpage
-\textbf{(d) [9]} Separate experiments show that B and W are only weakly adsorbed ($K_BP_B,\,K_WP_W\ll1$).
-The reaction is run in a fluidised-bed reactor that behaves as a CSTR, isothermal at 500 K with no pressure drop.
-Pure A is fed at $F_{A0}=10$ mol/s.
-\begin{enumerate}[label=(\roman*),itemsep=2pt]
-\item Find the catalyst mass needed for $X=0.50$ when the inlet pressure is $P_0=2$ atm.
-\item An engineer suggests that a higher pressure always means a faster rate. At the same $F_{A0}$ and $X=0.50$, what inlet pressure
-\emph{minimises} the catalyst mass, and what is that minimum mass? Explain physically why raising the pressure further
-does not help.
-\end{enumerate}
-\workspace{8cm}
+\textbf{(c) [6]} At a fixed H$_2$ pressure with $\sqrt{K_HP_{\mathrm{H_2}}}=1.0$ and $K_A=4.0$ atm$^{-1}$, find the GeCl$_2$
+partial pressure that maximises the deposition rate. What is the apparent reaction order in GeCl$_2$ at very low and at
+very high $P_{\mathrm{GeCl_2}}$?
+\workspace{7cm}
 
-\newpage
-\textbf{(e) [8]} The reactor is now operated at the optimum from (d)(ii). The catalyst sinters, following second-order decay with
-$k_d=0.0125$ h$^{-1}$. The fluidised bed is well mixed, so all of the catalyst has the same age.
-\begin{enumerate}[label=(\roman*),itemsep=2pt]
-\item Find the activity after 80 h. To what value must $F_{A0}$ be reduced (same $P_0$) to keep $X=0.50$?
-\item Instead of reducing the feed, the operators keep $F_{A0}=10$ mol/s and raise the temperature. The rate constant $k$ has
-$E=80$ kJ/mol. Assume that $K_A$ and $k_d$ do not change with $T$, and that the inlet partial pressure is held fixed.
-What temperature is needed after 80 h?
-\item Give one reason why the strategy in (ii) shortens the catalyst life in practice.
-\end{enumerate}
-\workspace{9cm}
+\textbf{(d) [4]} Explain (i) why the denominator is \emph{cubed}, (ii) why $P_{\mathrm{H_2}}$ appears under a square root,
+and (iii) why the total number of surface sites does not change as Ge is deposited.
+\workspace{6cm}
 
 % =====================================================================
 \newpage
 \section*{Formula sheet (provided)}
 \renewcommand{\arraystretch}{2.0}
-\begin{tabular}{@{}>{\bfseries}p{4.0cm} >{\raggedright\arraybackslash}p{12.2cm}@{}}
+\begin{tabular}{@{}>{\bfseries}p{3.8cm} >{\raggedright\arraybackslash}p{12.4cm}@{}}
 \toprule
-Relative rates & $aA+bB\to cC+dD$:\quad $\dfrac{r_A}{-a}=\dfrac{r_B}{-b}=\dfrac{r_C}{c}=\dfrac{r_D}{d}$\\
-PSSH & $r_{A^*}=\sum_i r_{iA^*}=0$\\
-Arrhenius & $k(T)=k(T_0)\exp\!\left[\dfrac{E}{R}\left(\dfrac{1}{T_0}-\dfrac{1}{T}\right)\right]$\\
-Design equations & batch (constant $V$): $\dfrac{dC_S}{dt}=r_S$\qquad CSTR: $W=\dfrac{F_{A0}X}{-r_A'}$\qquad PBR: $F_{A0}\dfrac{dX}{dW}=-r_A'$\\
-Gas stoichiometry & $P_A=P_{A0}\dfrac{1-X}{1+\varepsilon X}\,y\,\dfrac{T_0}{T}$,\qquad $\varepsilon=y_{A0}\delta$\\
-Michaelis--Menten & $-r_S=\dfrac{V_{\max}C_S}{K_M+C_S}$,\qquad $V_{\max}=k_{\text{cat}}C_{E,t}$\\
-Catalytic step rates & adsorption: $r_{AD}=k_A\left(P_AC_v-\dfrac{C_{\AS{A}}}{K_A}\right)$\\
- & surface reaction: $r_S=k_S\left(C_{\AS{A}}-\dfrac{C_{\AS{B}}}{K_S}\right)$\\
- & desorption: $r_D=k_D\left(C_{\AS{B}}-K_BP_BC_v\right)$\\
- & site balance: $C_t=C_v+\sum_iC_{i\cdot S}$\\
-Catalyst activity & $-r_A'=a(t)\,(-r_A')_{\text{fresh}}$,\qquad $-\dfrac{da}{dt}=k_da^n$\\
-Integrals & $\displaystyle\int\frac{dx}{x}=\ln x$,\qquad $\displaystyle\int\frac{dx}{x^2}=-\frac1x$,\qquad
-$\displaystyle\int_0^X\frac{dX}{1-X}=\ln\frac{1}{1-X}$\\
+Steady-state energy balance & $\dot Q-\dot W_s-F_{A0}\sum_i\Theta_iC_{P,i}(T-T_{i0})$\newline $\qquad-\left[\Delta H^\circ_{Rx}(T_R)+\Delta C_P(T-T_R)\right]F_{A0}X=0$\\
+Heat of reaction & $\Delta H^\circ_{Rx}=\sum\nu_iH_i^\circ$ \;(per mole of A), \quad $\Delta C_P=\sum\nu_iC_{P,i}$\\
+Arrhenius & $k(T)=k(T_1)\exp\!\left[\dfrac{E}{R}\left(\dfrac{1}{T_1}-\dfrac{1}{T}\right)\right]$\\
+van 't Hoff ($\Delta C_P=0$) & $K_C(T)=K_C(T_2)\exp\!\left[\dfrac{\Delta H^\circ_{Rx}}{R}\left(\dfrac{1}{T_2}-\dfrac{1}{T}\right)\right]$\\
+Design equations & batch (constant $V$): $\dfrac{dC_S}{dt}=r_S$ \qquad PBR: $F_{A0}\dfrac{dX}{dW}=-r_A'$\newline CSTR: $V=\dfrac{F_{A0}X}{-r_A}$, \; $W=\dfrac{F_{A0}X}{-r_A'}$\\
+Stoichiometry & liquid: $C_A=C_{A0}(1-X)$, \; $C_B=C_{A0}(\Theta_B+X)$\newline gas: $P_A=P_{A0}\dfrac{1-X}{1+\varepsilon X}\,y\dfrac{T_0}{T}$, \; $\varepsilon=y_{A0}\delta$\\
+PSSH & $r_{A^*}=\sum_ir_{iA^*}=0$\\
+Michaelis--Menten & $-r_S=\dfrac{V_{\max}C_S}{K_M+C_S}$, \qquad $V_{\max}=k_{\text{cat}}C_{E,t}$\\
+Elementary surface steps & adsorption $r_{AD}=k_A\left(P_AC_v-\dfrac{C_{\AS{A}}}{K_A}\right)$; \;
+desorption $r_D=k_D\left(C_{\AS{B}}-K_BP_BC_v\right)$\\
+Site / area balance & $C_t=C_v+\sum_iC_{i\cdot S}$ \qquad or \qquad $f_v+\sum_if_i=1$\\
+Integral & $\displaystyle\int\frac{dx}{x}=\ln x$\\
 \bottomrule
 \end{tabular}
 

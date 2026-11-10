@@ -11,7 +11,6 @@
 \usepackage[most]{tcolorbox}
 \usepackage{booktabs,array,tabularx}
 \usepackage{enumitem}
-\usepackage{pifont}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
@@ -21,7 +20,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\small CENG 252 \textbullet\ Practice Midterm 2 \textbullet\ Solutions}
-\rhead{\small Lectures 6--10}
+\rhead{\small Lectures 1--10}
 \cfoot{\small \thepage}
 
 \definecolor{keyblue}{RGB}{0,84,147}
@@ -30,19 +29,16 @@
 \newtcolorbox{answer}{enhanced,breakable,colback=keyblue!5,colframe=keyblue,title={Answer},fonttitle=\bfseries,left=4pt,right=4pt,top=2pt,bottom=2pt}
 \newtcolorbox{mistake}[1][Common mistake]{enhanced,breakable,colback=warnred!5,colframe=warnred,title={#1},fonttitle=\bfseries,left=4pt,right=4pt,top=2pt,bottom=2pt}
 \newtcolorbox{grading}{enhanced,breakable,colback=tipgreen!5,colframe=tipgreen,title={Grading guide},fonttitle=\bfseries,left=4pt,right=4pt,top=2pt,bottom=2pt}
-\newtcolorbox{keyidea}{enhanced,breakable,colback=black!3,colframe=black!60,title={Key idea},fonttitle=\bfseries,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{keyidea}[1][Key idea]{enhanced,breakable,colback=black!3,colframe=black!60,title={#1},fonttitle=\bfseries,left=4pt,right=4pt,top=2pt,bottom=2pt}
 
 \newcommand{\AS}[1]{\mathrm{#1\!\cdot\!S}}
 \newcommand{\step}[1]{\par\smallskip\textbf{Step #1.}\ }
-\newcommand{\Oz}{C_{\mathrm{O_3}}}
-\newcommand{\Ot}{C_{\mathrm{O_2}}}
-\newcommand{\Oa}{C_{\mathrm{O}}}
 
 \begin{document}
 
 \begin{center}
 {\LARGE\bfseries CENG 252 Practice Midterm 2: Solutions}\\[4pt]
-Lectures 6--10 \quad\textbullet\quad 100 points \quad\textbullet\quad 80 minutes
+Lectures 1--10 \quad\textbullet\quad 100 points \quad\textbullet\quad 80 minutes
 \end{center}
 
 \begin{center}
@@ -50,470 +46,397 @@ Lectures 6--10 \quad\textbullet\quad 100 points \quad\textbullet\quad 80 minutes
 \renewcommand{\arraystretch}{1.35}
 \begin{tabularx}{\textwidth}{c X l}
 \toprule
-Problem & Final answers & Similar to\\
+Problem & Final answers & Similar to (Fogler 5th ed.)\\
 \midrule
-1 & (a) $-2k_5C_{\mathrm{CH_3\bullet}}^2$; (b) H$_2$ dissociative, A molecular, dual-site RLS, B weakly adsorbed;
-(c) X competitive, Y uncompetitive, only X; (d) (i) dual-site, (ii) adsorption, (iii) single-site;
-(e) 2nd order, $k_d=0.025$ h$^{-1}$, sintering, $t=120$ h; (f) $-r_A'=a(t)(-r_A')_{\text{fresh}}$; (g) PBR, STTR, moving bed; (h) sintering (irreversible), S poisoning (irreversible), coking (reversible) & L6--L10\\
-2 & $-r_{\mathrm{O_3}}=\dfrac{2k_1k_3\Oz^2}{k_2\Ot+k_3\Oz}$; $k_{\text{obs}}=2k_1k_3/k_2$; initially $2k_1\Oz$;
-$E_{\text{app}}=118$ kJ/mol, factor 4.60 & L6 Ex.~1, L6 NO, HW3-2\\
-3 & uncompetitive rate law; $V_{\max}=2.0$ mmol/L/min, $K_M=5.0$ mmol/L; uncompetitive, $K_I=2.0$ mmol/L;
-$t=14.8$ min (no I), $32.8$ min (with I) & L7, HW3-3\\
-4 & (a) $\dfrac{kP_A}{(1+K_AP_A+K_BP_B+K_WP_W)^2}$; (b) $\dfrac{k_AC_tP_A}{1+K_BP_B+K_WP_W}$;
-$k=0.50$ mol/(kg$\cdot$s$\cdot$atm), $K_A=0.50$ atm$^{-1}$; $W=26.7$ kg; $P_0=6$ atm, $W_{\min}=20.0$ kg;
-$a=0.5$, $F_{A0}=5.0$ mol/s, $T=518.7$ K & L8--L10, HW3-4, HW3-5\\
+1 & $\Delta H^\circ_{Rx}=-6000$ cal/mol, $\Delta C_P=0$; $T=300+120X$; at $X=0.6$: $T=372$ K, $k=0.652$ min$^{-1}$,
+$K_C=4.28$, $X_e=0.81$, $V=177$ dm$^3$; $X=0.8$ impossible ($X_e(396\text{ K})=0.72$) & Ex.~11-2, 11-3(c), 11-4\\
+2 & $I_0/I=1+\dfrac{k_3}{k_2C_M+k_4}C_Q$; $k'=0.50$ L/mmol, $C_Q=6.0$ mmol/L; $V_{\max}=2.0$ mmol/(L$\cdot$min),
+$K_M=4.0$ mmol/L; $t=27.2$ min & Ex.~9-1, 9-2, 9-3\\
+3 & $-r_C'=\dfrac{k(P_C-P_BP_P/K_P)}{1+K_CP_C+K_BP_B}$; initial rates: linear, levelling off, constant; surface reaction
+limiting, $k=0.50$ mol/(kg$\cdot$s$\cdot$atm), $K_C=1.0$ atm$^{-1}$; $W=30$ kg (20 kg if benzene is ignored) & \S10.3, Ex.~10-2(b)\\
+4 & $r''_{\text{Dep}}=\dfrac{k'P_{\mathrm{GeCl_2}}P_{\mathrm{H_2}}}{\left(1+K_AP_{\mathrm{GeCl_2}}+\sqrt{K_HP_{\mathrm{H_2}}}\right)^3}$;
+in GeCl$_4$: $\propto\dfrac{P_{\mathrm{GeCl_4}}P_{\mathrm{H_2}}P_{\mathrm{Cl_2}}^2}{(\ldots)^3}$; $P^*=0.25$ atm; orders $+1$ and $-2$ & \S10.5.2\\
 \bottomrule
 \end{tabularx}
 \end{center}
 
-% =====================================================================
-\section*{Problem 1: Short answers and concepts (25 pts)}
-
-\subsection*{(a) Stoichiometric factor in a PSSH balance}
-By relative rates for \ce{2CH3^{.} -> C2H6}: $\dfrac{r_{5,\mathrm{CH_3\bullet}}}{-2}=\dfrac{r_{5,\mathrm{C_2H_6}}}{1}$, so
-\begin{answer}
-$r_{5,\mathrm{CH_3\bullet}}=-2k_5C_{\mathrm{CH_3\bullet}}^2$. Two radicals are destroyed for every C$_2$H$_6$ formed.
-This is exactly the same factor as in $2k_1C_{\mathrm{Br_2}}$ for H$_2$/Br$_2$ initiation (Lec.~7).
-\end{answer}
-
-\subsection*{(b) Reading an L--H rate law}
-\begin{answer}
-Any three of:
-\begin{enumerate}[itemsep=1pt]
-\item $\sqrt{K_HP_{\mathrm{H_2}}}$ in the denominator: \textbf{H$_2$ adsorbs dissociatively}, \ce{H2 + 2S <=> 2H.S}.
-\item $K_AP_A$ in the denominator: \textbf{A adsorbs molecularly} on the same sites as H.
-\item \textbf{Squared denominator}: the RLS needs two adjacent sites, i.e.\ a \textbf{dual-site surface reaction}
-\ce{A.S + H.S -> \ldots}, which is why the numerator contains $P_AP_{\mathrm{H_2}}^{1/2}$ (one adsorbed A and one adsorbed H atom).
-\item No $P_B$ term in the denominator: B is \textbf{weakly adsorbed} (or desorbs instantly). No reverse term: the reaction is irreversible.
-\end{enumerate}
-\end{answer}
-
-\subsection*{(c) Inhibitor types}
-\begin{answer}
-X: \textbf{competitive} (same intercept $1/V_{\max}$, slope $\times(1+C_I/K_I)$).
-Y: \textbf{uncompetitive} (parallel line, intercept $\times(1+C_I/K_I)$).
-Only with \textbf{X} can $V_{\max}$ still be reached. As $C_S\to\infty$ ($1/C_S\to0$), the competitive line goes to the
-same intercept: substrate out-competes the inhibitor for the free enzyme. With an uncompetitive inhibitor, more S
-just makes more E$\cdot$S for I to bind, so the apparent maximum is $V_{\max}/(1+C_I/K_I)$.
-\end{answer}
-
-\subsection*{(d) Initial-rate curves}
-\begin{answer}
+\begin{keyidea}[How this exam maps to the instructor's announcement]
 \begin{itemize}[itemsep=1pt]
-\item (i) maximum: \textbf{dual-site surface reaction}, $-r_{A0}'=kP_{A0}/(1+K_AP_{A0})^2$. At high $P_{A0}$, A covers the
-surface and there are no vacant neighbouring sites left. The maximum is at $P_{A0}=1/K_A$.
-\item (ii) straight line through the origin: \textbf{adsorption of A limiting}, $-r_{A0}'=k_AC_tP_{A0}$. There is no
-$K_AP_A$ term, so it never saturates.
-\item (iii) levels off: \textbf{single-site surface reaction}, $-r_{A0}'=kP_{A0}/(1+K_AP_{A0})\to k/K_A$ when the surface is full.
+\item ``One problem on energy balance (non-isothermal steady state)'' $\to$ \textbf{Problem 1}. It is pitched at
+Ex.~11-2 (heat of reaction), Ex.~11-3(c) (adiabatic CSTR at the exit $T$) and the \emph{strategy} of Ex.~11-4. As
+promised, it does not ask you to solve for the adiabatic equilibrium $T$ and $X$.
+\item ``Chapter 9 (9.1--9.3), Ex.~9-1, 9-2, 9-3'' $\to$ \textbf{Problem 2}: a Stern--Volmer derivation, $V_{\max}$ and $K_M$ from data, and a batch enzymatic reactor.
+\item ``10.3 (benzene decomposition) is very important'' $\to$ \textbf{Problem 3}, plus the hand-calculation part of
+Ex.~10-2 (fluidised CSTR). No $X$ or $P$ profiles are integrated, as promised.
+\item ``10.5.2 (CVD) is very important'' $\to$ \textbf{Problem 4}.
 \end{itemize}
-\end{answer}
-
-\subsection*{(e) Decay order}
-Test both forms. The rate constant must be the same at both times:
-\begin{center}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{lcc}
-\toprule
- & $t=10$ h, $a=0.80$ & $t=40$ h, $a=0.50$\\
-\midrule
-1st order: $k_d=\ln(1/a)/t$ & $0.223/10=0.0223$ h$^{-1}$ & $0.693/40=0.0173$ h$^{-1}$ \quad\ding{55}\\
-2nd order: $k_d=(1/a-1)/t$ & $0.25/10=0.025$ h$^{-1}$ & $1.00/40=0.025$ h$^{-1}$ \quad\checkmark\\
-\bottomrule
-\end{tabular}
-\end{center}
-\begin{answer}
-\textbf{Second order}, with $k_d=0.025$ h$^{-1}$: this is typical of \textbf{sintering}.
-For $a=0.25$: $1/a-1=3=k_dt\Rightarrow t=3/0.025=$ \textbf{120 h}.
-\end{answer}
-
-
-
-\subsection*{(f) Separable deactivation kinetics}
-\begin{answer}
-Kinetics are \textbf{separable} when the catalyst's history affects the rate only through one multiplying factor, the
-activity, and not through the form of the rate law:
-\[
--r_A'=a(t)\times\left(-r_A'\right)_{\text{fresh}}=a(t)\,k(T)\,f(C_i),\qquad a(t)=\frac{-r_A'(t)}{-r_A'(t=0)},\quad a(0)=1,
-\]
-with a separate decay law $r_d=-\dfrac{da}{dt}=p(a)\,k_d(T)\,h(C_i)$.
-\textbf{Why it is useful:} the intrinsic kinetics (on fresh catalyst) and the decay law can be measured and modelled
-\emph{independently}, and then simply multiplied in the design equation. (Non-separable: $-r_A'=f(\text{history},\text{kinetics})$,
-which cannot be split.)
-\textbf{Raising $T$:} as $a$ falls, plants increase $T$ so that $k(T)$ rises and $a\,k(T)$, and hence the production rate, stays constant.
-\end{answer}
-
-\subsection*{(g) Choosing the reactor by decay time scale}
-\begin{answer}
-\begin{enumerate}[label=(\roman*),itemsep=1pt]
-\item \textbf{Packed bed.} Decay is very slow, so the catalyst can stay fixed for years. A PBR gives the highest
-conversion per mass of catalyst, and the catalyst is replaced at rare shutdowns.
-\item \textbf{Straight-through transport reactor (riser).} Catalyst and feed enter together and pass through in seconds,
-so every reacting molecule sees fresh catalyst (there is no ``decay disguise''). The spent catalyst goes straight to a regenerator.
-\item \textbf{Moving bed.} The catalyst moves slowly through the reactor, is withdrawn continuously to a regenerator
-(coke burn-off), and returns. The activity in the bed stays steady and the plant never stops.
-\end{enumerate}
-Rule of thumb: the faster the decay, the more the catalyst must move (years: PBR; hours to days: moving bed; seconds: STTR or fluidised riser).
-\end{answer}
-
-\subsection*{(h) Classifying deactivation}
-\begin{answer}
-\begin{enumerate}[label=(\roman*),itemsep=1pt]
-\item \textbf{Sintering} (thermal degradation): crystallites grow, and the Ni area and the support area are lost.
-\textbf{Irreversible}, so it is prevented rather than cured. Remedy: run at a lower $T$, or use a thermally stable support
-(Al$_2$O$_3$ $>$ SiO$_2$ $>$ C), a non-oxidising atmosphere, a porous support, or trapping promoters (BaO, CaO, SrO).
-\item \textbf{Poisoning} by sulfur: H$_2$S chemisorbs strongly on the Ni sites. Essentially \textbf{irreversible}.
-Remedy: remove the sulfur upstream (hydrodesulfurisation or a ZnO guard bed) before the reformer.
-\item \textbf{Fouling/coking}: coke has two effects, \emph{site coverage} and \emph{pore blockage} (diffusion resistance).
-\textbf{Reversible}: burn the coke off in a regenerator (moving bed, FCC). It can also be reduced by co-feeding H$_2$
-or steam, or by lowering $T$.
-\end{enumerate}
-\textbf{O$_2$:} ``poison'' has an \emph{operational} meaning. On Ag, adsorbed O is the reactant that makes ethylene oxide.
-On Ni, O$_2$ adsorbs more strongly than H$_2$ and ethylene, blocking the sites they need, so it acts as a poison.
-\end{answer}
-
-\begin{keyidea}
-Lecture 10 is largely descriptive, so expect at least one question like (f)--(h): know the four reactor types, the three
-deactivation mechanisms, and which ones are reversible.
+Timing: a well-prepared student needs about 18 + 13 + 20 + 14 = 65 minutes, which leaves about 15 minutes to check.
 \end{keyidea}
 
-\begin{grading}
-(a)--(e) 3 pts each, (f)--(g) 3 pts, (h) 4 pts. (a): 2 for the factor of 2, 1 for the reason. (b): 1 per correct conclusion. (c): 1 + 1 for the names, 1 for the reasoning.
-(d): 1 per correct match with a reason. (e): 1 for the test, 1 for $k_d$ and the mechanism, 1 for 120 h.
-(f): 1 for the definition, 1 for the rate law with $a(t)$, 1 for why it is useful and why $T$ is raised.
-(g): 1 per correct reactor with a reason. (h): 1 per correctly classified case (mechanism, reversibility, remedy), 1 for the O$_2$ sentence.
-\end{grading}
-
 % =====================================================================
-\section*{Problem 2: Ozone decomposition (15 pts)}
+\section*{Problem 1: Energy balance, adiabatic CSTR (25 pts)}
 
-\subsection*{(a) PSSH derivation}
-\step{1}\textbf{Rate of each step, written for O} (every $k$ is w.r.t.\ O, and every coefficient of O is 1):
+\subsection*{(a) Heat of reaction}
 \[
-r_{1,\mathrm{O}}=+k_1\Oz,\qquad r_{2,\mathrm{O}}=-k_2\Ot\Oa,\qquad r_{3,\mathrm{O}}=-k_3\Oa\Oz .
+\Delta H^\circ_{Rx}=H_B^\circ-H_A^\circ=-41{,}000-(-35{,}000)=-6000\ \text{cal/mol A}\quad(\text{exothermic}),
 \]
-\step{2}\textbf{PSSH on O:}
 \[
-r_{\mathrm{O}}=k_1\Oz-k_2\Ot\Oa-k_3\Oa\Oz=0
+\Delta C_P=C_{P,B}-C_{P,A}=40-40=0 .
+\]
+\begin{answer}
+$\Delta H^\circ_{Rx}=-6000$ cal/mol A. Since $\Delta C_P=0$, $\Delta H_{Rx}(T)=\Delta H^\circ_{Rx}(T_R)+\Delta C_P(T-T_R)=-6000$
+cal/mol at every temperature.
+\end{answer}
+
+\subsection*{(b) Adiabatic $T$--$X$ relation}
+\step{1}Adiabatic ($\dot Q=0$), no shaft work ($\dot W_s=0$), all species fed at $T_0$, and $\Delta C_P=0$:
+\[
+-F_{A0}\sum\Theta_iC_{P,i}(T-T_0)-\Delta H^\circ_{Rx}F_{A0}X=0
 \quad\Rightarrow\quad
-\boxed{\Oa=\frac{k_1\Oz}{k_2\Ot+k_3\Oz}}
+T=T_0+\frac{(-\Delta H^\circ_{Rx})X}{\sum\Theta_iC_{P,i}} .
 \]
-\step{3}\textbf{Net rate of O$_3$}, converting each step with relative rates (one O$_3$ per O in every step):
+\step{2}$\Theta_B=0$ and $\Theta_I=0.20/0.80=0.25$, so
+$\sum\Theta_iC_{P,i}=C_{P,A}+\Theta_IC_{P,I}=40+0.25(40)=50$ cal/(mol A$\cdot$K).
+\begin{answer}
+\[
+T=300+\frac{6000}{50}X=300+120X\ \text{(K)}
+\]
+\end{answer}
+\begin{mistake}
+Leaving out the inert ($\sum\Theta_iC_{P,i}=40$ gives $T=300+150X$, which is too hot). $\Theta_I$ is per mole of \emph{A} fed:
+$0.20/0.80$, not 0.20.
+\end{mistake}
+
+\subsection*{(c) CSTR volume for $X=0.60$}
+A CSTR operates entirely at its exit conditions, so evaluate everything at $X=0.60$.
+
+\step{1}Exit temperature: $T=300+120(0.60)=372$ K. \quad $\dfrac{1}{300}-\dfrac{1}{372}=6.452\times10^{-4}$ K$^{-1}$.
+
+\step{2}Rate constant:
+$k=0.005\exp\!\left[\dfrac{15{,}000}{1.987}(6.452\times10^{-4})\right]=0.005\,e^{4.870}=0.652$ min$^{-1}$.
+
+\step{3}Equilibrium constant (exothermic, so $K_C$ falls):
+$K_C=30\exp\!\left[\dfrac{-6000}{1.987}(6.452\times10^{-4})\right]=30\,e^{-1.948}=4.28$.
+
+\step{4}Feasibility check: $X_e=\dfrac{K_C}{1+K_C}=\dfrac{4.28}{5.28}=0.81>0.60$. \checkmark
+
+\step{5}Liquid-phase stoichiometry: $C_A=C_{A0}(1-X)=0.80$ and $C_B=C_{A0}X=1.20$ mol/dm$^3$:
+\[
+-r_A=k\left(C_A-\frac{C_B}{K_C}\right)=0.652\left(0.80-\frac{1.20}{4.28}\right)=0.652(0.520)=0.339\ \text{mol/(dm}^3\cdot\text{min)}.
+\]
+\step{6}$F_{A0}=0.80(125)=100$ mol/min:
+\[
+V=\frac{F_{A0}X}{-r_A}=\frac{(100)(0.60)}{0.339}.
+\]
+\begin{answer}
+$V\approx$ \textbf{177 dm$^3$} (with $v_0=F_{A0}/C_{A0}=50$ dm$^3$/min, $\tau=3.5$ min), operating at 372 K.
+For comparison, an \emph{isothermal} CSTR at 300 K would need about 15{,}800 dm$^3$. The heat released by the
+reaction speeds it up roughly 90-fold.
+\end{answer}
+\begin{mistake}
+(1) Using $k$ and $K_C$ at the \emph{feed} temperature. (2) Using the $X_e$ of the adiabatic equilibrium point instead of $X_e$
+at the reactor temperature. (3) Writing $-r_A=kC_A$ and dropping the reverse term.
+\end{mistake}
+
+\subsection*{(d) The adiabatic limit}
+(i) At $X=0.80$ the energy balance gives $T=300+120(0.80)=396$ K. There,
+\[
+K_C=30\exp\!\left[\frac{-6000}{1.987}\left(\frac{1}{300}-\frac{1}{396}\right)\right]=30\,e^{-2.440}=2.61,\qquad X_e=\frac{2.61}{3.61}=0.72 .
+\]
+\begin{answer}
+(i) To reach $X=0.80$, the adiabatic feed must heat up to 396 K. At that temperature equilibrium allows only
+$X_e=0.72<0.80$, so \textbf{no adiabatic reactor of any size can reach 0.80}. (For reference, the adiabatic equilibrium point
+is at about 390 K and $X\approx0.75$; you were not asked to find it.)
+
+(ii) The equilibrium curve $X_e(T)$ falls with $T$ (exothermic). The energy-balance line rises from $(T_0,0)$ with slope
+$\sum\Theta_iC_{P,i}/(-\Delta H^\circ_{Rx})$. They intersect at the adiabatic equilibrium point. Ways to go higher:
 \begin{itemize}[itemsep=1pt]
-\item step 1 consumes O$_3$: $r_{1,\mathrm{O_3}}=-r_{1,\mathrm{O}}=-k_1\Oz$;
-\item step 2 \emph{forms} O$_3$: $r_{2,\mathrm{O_3}}=-r_{2,\mathrm{O}}=+k_2\Ot\Oa$;
-\item step 3 consumes O$_3$: $r_{3,\mathrm{O_3}}=r_{3,\mathrm{O}}=-k_3\Oa\Oz$.
+\item a \textbf{lower feed temperature} $T_0$ (the line shifts left; $T_0=280$ K gives about 0.80);
+\item \textbf{more inert} (larger $\sum\Theta_iC_{P,i}$, so the line is steeper and $T$ rises less);
+\item \textbf{reactors in series with interstage cooling}, or removing heat (a non-adiabatic reactor).
 \end{itemize}
-\[
--r_{\mathrm{O_3}}=k_1\Oz-k_2\Ot\Oa+k_3\Oa\Oz .
-\]
-\step{4}\textbf{Simplify with the PSSH.} From Step 2, $k_1\Oz-k_2\Ot\Oa=k_3\Oa\Oz$. Therefore
-\[
--r_{\mathrm{O_3}}=2k_3\Oa\Oz=2k_3\Oz\cdot\frac{k_1\Oz}{k_2\Ot+k_3\Oz}.
-\]
-\begin{answer}
-\[
--r_{\mathrm{O_3}}=\frac{2k_1k_3\,\Oz^2}{k_2\Ot+k_3\Oz}
-\]
-Check: $r_{\mathrm{O_2}}=k_1\Oz-k_2\Ot\Oa+2k_3\Oa\Oz=3k_3\Oa\Oz=\tfrac32(-r_{\mathrm{O_3}})$, which is consistent with \ce{2O3 -> 3O2}. \checkmark
-\end{answer}
-\begin{mistake}
-(1) Forgetting that step 3 \emph{also} consumes O$_3$, which gives $-r_{\mathrm{O_3}}=k_3\Oa\Oz$ and loses the factor 2.
-(2) Forgetting that step 2 \emph{regenerates} O$_3$.
-Write the O$_3$ contribution of every step explicitly before simplifying.
-\end{mistake}
-
-\subsection*{(b) Excess O$_2$, and the start of the run}
-\begin{answer}
-Excess O$_2$: $k_2\Ot\gg k_3\Oz$ (O atoms recombine with O$_2$ much more often than they attack O$_3$), so
-\[
--r_{\mathrm{O_3}}\approx\frac{2k_1k_3}{k_2}\frac{\Oz^2}{\Ot},\qquad k_{\text{obs}}=\frac{2k_1k_3}{k_2}.
-\]
-Start of a run with pure ozone: $\Ot\approx0$, so $k_3\Oz\gg k_2\Ot$ and $-r_{\mathrm{O_3}}\approx2k_1\Oz$, which is \textbf{first order}.
-As O$_2$ builds up, the product \textbf{inhibits} the reaction (O$_2$ is in the denominator).
 \end{answer}
 
-\subsection*{(c) Apparent activation energy}
-$k_{\text{obs}}=2k_1k_3/k_2=2\dfrac{A_1A_3}{A_2}\exp\!\left[-\dfrac{E_1+E_3-E_2}{RT}\right]$, so
-\[
-E_{\text{app}}=E_1+E_3-E_2=100+20-2=118\ \text{kJ/mol}.
-\]
-\[
-\frac{k_{\text{obs}}(310)}{k_{\text{obs}}(300)}=\exp\!\left[\frac{118{,}000}{8.314}\left(\frac{1}{300}-\frac{1}{310}\right)\right]
-=\exp\!\left[(14{,}193)(1.0753\times10^{-4})\right]=e^{1.526}.
-\]
-\begin{answer}
-$E_{\text{app}}=118$ kJ/mol, and $k_{\text{obs}}$ increases by a factor of \textbf{4.60}.
-(If $E_2$ were larger than $E_1+E_3$, then $E_{\text{app}}<0$, as in the NO oxidation of Lec.~6.)
-\end{answer}
-
-\subsection*{(d) Sketch}
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[width=9cm,height=5.6cm,xmin=0,xmax=10,ymin=0,ymax=6,axis lines=left,
-  xlabel={$C_{\mathrm{O_3}}$ (fixed $C_{\mathrm{O_2}}$)},ylabel={$-r_{\mathrm{O_3}}$},ticks=none,
-  legend style={font=\scriptsize,at={(1.03,0.5)},anchor=west,draw=none}]
-\addplot[very thick,keyblue,domain=0:10,samples=80]{1.6*x^2/(1+1.6*x)*1};
-\addlegendentry{$2k_1k_3C_{\mathrm{O_3}}^2/(k_2C_{\mathrm{O_2}}+k_3C_{\mathrm{O_3}})$}
-\addplot[dashed,warnred,domain=0:1.9]{1.6*x^2};
-\addlegendentry{low $C_{\mathrm{O_3}}$: 2nd order}
-\addplot[dashed,tipgreen,domain=0:10]{x-0.625};
-\addlegendentry{high $C_{\mathrm{O_3}}$: 1st order, $2k_1C_{\mathrm{O_3}}$}
+\begin{axis}[width=10cm,height=6.2cm,xmin=280,xmax=480,ymin=0,ymax=1.05,axis lines=left,
+  xlabel={$T$ (K)},ylabel={$X$},legend style={font=\scriptsize,at={(1.02,0.5)},anchor=west,draw=none}]
+\addplot[very thick,keyblue,domain=280:480,samples=120]{30*exp(-3019.6*(1/300-1/x))/(1+30*exp(-3019.6*(1/300-1/x)))};
+\addlegendentry{$X_e(T)$}
+\addplot[very thick,warnred,domain=300:420]{(x-300)/120};
+\addlegendentry{EB line, $T_0=300$ K}
+\addplot[thick,dashed,warnred,domain=280:400]{(x-280)/120};
+\addlegendentry{EB line, $T_0=280$ K}
+\addplot[only marks,mark=*,mark size=2pt] coordinates{(389.7,0.747)};
+\node[font=\scriptsize,anchor=west] at (axis cs:392,0.80) {adiabatic eq.\ ($\approx$390 K, 0.75)};
+\addplot[only marks,mark=square*,mark size=2pt,tipgreen] coordinates{(372,0.6)};
+\node[font=\scriptsize,anchor=west,tipgreen] at (axis cs:374,0.55) {CSTR, part (c)};
 \end{axis}
 \end{tikzpicture}
 \end{center}
-\begin{answer}
-Second order at low $C_{\mathrm{O_3}}$ (with $\Ot$ fixed), changing to first order at high $C_{\mathrm{O_3}}$.
-At high $C_{\mathrm{O_3}}$, every O atom formed reacts with O$_3$, so the rate is set by \textbf{step 1}, the unimolecular
-decomposition \ce{O3 -> O2 + O}. This is the same behaviour as the Lindemann example in Lec.~6.
-\end{answer}
 
 \begin{grading}
-(a) 1 for the step rates written for O, 2 for the PSSH and $C_{\mathrm{O}}$, 2 for the net O$_3$ rate with all three steps,
-1 for the final simplification. (b) 1 for the condition, 2 for $k_{\text{obs}}$, 1 for the initial first order.
-(c) 2 for $E_{\text{app}}$, 1 for the factor. (d) 1 for the sketch with orders, 1 for step 1.
+(a) 2 for $\Delta H^\circ_{Rx}$ with its sign and basis, 1 for $\Delta C_P=0$ and the consequence.
+(b) 2 for reducing the energy balance to the adiabatic form, 2 for $\Theta_I$ and $\sum\Theta_iC_{P,i}$, 2 for $T=300+120X$.
+(c) 1 for $T$, 2 for $k$, 2 for $K_C$, 1 for the $X_e$ check, 2 for the rate with stoichiometry, 2 for $V$.
+(d) 3 for (i) with the $X_e(396)$ calculation, 3 for (ii): sketch, intersection and two valid fixes.
 \end{grading}
 
 % =====================================================================
-\section*{Problem 3: Enzyme kinetics (20 pts)}
+\section*{Problem 2: Reaction pathways and enzymes (20 pts)}
 
-\subsection*{(a) Uncompetitive inhibition}
-Mechanism: \ce{E + S <=>[k_1][k_2] E.S ->[k_3] E + P}, \ce{E.S + I <=> I.E.S} (inactive, $K_I$).
+\subsection*{(a) Stern--Volmer equation}
+\step{1}Write the rate of every step for D$^*$:
+formation $=I_a$;\; loss by (2) $=k_2C_MC_{D^*}$;\; by (3) $=k_3C_QC_{D^*}$;\; by (4) $=k_4C_{D^*}$.
 
-\step{1}PSSH on E$\cdot$S. The inhibitor step is at equilibrium, so its net rate is zero:
-$0=k_1C_EC_S-(k_2+k_3)C_{E\cdot S}\;\Rightarrow\;C_{E\cdot S}=\dfrac{C_EC_S}{K_M}$, with $K_M=\dfrac{k_2+k_3}{k_1}$.
-
-\step{2}Inhibitor equilibrium: $C_{I\cdot E\cdot S}=\dfrac{C_IC_{E\cdot S}}{K_I}=\dfrac{C_IC_SC_E}{K_IK_M}$.
-
-\step{3}Total enzyme balance:
+\step{2}PSSH on D$^*$:
 \[
-C_{E,t}=C_E+C_{E\cdot S}+C_{I\cdot E\cdot S}=C_E\left[1+\frac{C_S}{K_M}\left(1+\frac{C_I}{K_I}\right)\right].
+0=I_a-k_2C_MC_{D^*}-k_3C_QC_{D^*}-k_4C_{D^*}
+\quad\Rightarrow\quad
+C_{D^*}=\frac{I_a}{k_2C_M+k_3C_Q+k_4}.
 \]
-\step{4}Rate, with $V_{\max}=k_3C_{E,t}$:
+\step{3}Intensity with and without quencher:
 \[
--r_S=k_3C_{E\cdot S}=\frac{k_3C_SC_{E,t}/K_M}{1+\frac{C_S}{K_M}\left(1+\frac{C_I}{K_I}\right)}
-=\frac{V_{\max}C_S}{K_M+C_S\left(1+\frac{C_I}{K_I}\right)}.
+I=k_4C_{D^*}=\frac{k_4I_a}{k_2C_M+k_3C_Q+k_4},\qquad I_0=I(C_Q=0)=\frac{k_4I_a}{k_2C_M+k_4}.
 \]
-\step{5}Invert:
+
+\step{4}Take the ratio:
 \begin{answer}
 \[
-\frac{1}{-r_S}=\frac{1}{V_{\max}}\left(1+\frac{C_I}{K_I}\right)+\frac{K_M}{V_{\max}}\cdot\frac{1}{C_S}
+\frac{I_0}{I}=\frac{k_2C_M+k_3C_Q+k_4}{k_2C_M+k_4}=1+k'C_Q,\qquad k'=\frac{k_3}{k_2C_M+k_4}
 \]
-The slope $K_M/V_{\max}$ is \textbf{unchanged} and the intercept is multiplied by $(1+C_I/K_I)$, so the lines are parallel.
+$C_M$ (the solvent) is constant, so the Stern--Volmer plot of $I_0/I$ against $C_Q$ is a straight line with intercept 1.
+$I_a$ (and $k_4$) cancel because the same lamp excites the dye in both measurements: the ratio isolates the competition
+for D$^*$.
 \end{answer}
 
-\subsection*{(b) $V_{\max}$ and $K_M$}
+\subsection*{(b) Numbers}
+\begin{answer}
+$k'=\dfrac{2.5-1}{3.0}=$ \textbf{0.50 L/mmol}. For $I=I_0/4$: $I_0/I=4=1+0.50\,C_Q\Rightarrow C_Q=$ \textbf{6.0 mmol/L}.
+\end{answer}
+
+\subsection*{(c) Lineweaver--Burk}
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lcccc}
+\toprule
+$1/C_S$ (L/mmol) & 1.000 & 0.500 & 0.250 & 0.125\\
+$1/(-r_S)$ (L$\cdot$min/mmol) & 2.50 & 1.50 & 1.00 & 0.75\\
+\bottomrule
+\end{tabular}
+\end{center}
+Slope $=\dfrac{2.50-0.75}{1.000-0.125}=2.0$ min; \quad intercept $=2.50-2.0(1.000)=0.50$ L$\cdot$min/mmol.
+\begin{answer}
+$V_{\max}=1/0.50=$ \textbf{2.0 mmol/(L$\cdot$min)}; \quad $K_M=\text{slope}\times V_{\max}=2.0\times2.0=$ \textbf{4.0 mmol/L}.
+\end{answer}
+
+\subsection*{(d) Batch reactor at half the enzyme loading}
+\step{1}$V_{\max}=k_{\text{cat}}C_{E,t}$ is proportional to the enzyme loading, so at 0.50 g/L, $V_{\max}=1.0$ mmol/(L$\cdot$min).
+$K_M=(k_2+k_3)/k_1$ is a ratio of rate constants and does \textbf{not} depend on the amount of enzyme: $K_M=4.0$ mmol/L.
+
+\step{2}Mole balance: $\dfrac{dC_S}{dt}=-\dfrac{V_{\max}C_S}{K_M+C_S}\;\Rightarrow\;-\displaystyle\int_{C_{S0}}^{C_S}\left(\frac{K_M}{C_S}+1\right)dC_S=V_{\max}t$, so
+\[
+t=\frac{K_M}{V_{\max}}\ln\frac{1}{1-X}+\frac{C_{S0}X}{V_{\max}}.
+\]
+\step{3}$t=\dfrac{4.0}{1.0}\ln10+\dfrac{(20)(0.90)}{1.0}=9.2+18.0$.
+\begin{answer}
+$t=$ \textbf{27.2 min}. Halving the enzyme loading halves $V_{\max}$ and doubles the time; $K_M$ is unchanged.
+\end{answer}
+\begin{mistake}
+Scaling $K_M$ with the enzyme loading, or using the CSTR formula $t=C_{S0}X/(-r_S)$ for a batch reactor.
+\end{mistake}
+
+\begin{grading}
+(a) 2 for the step rates, 2 for the PSSH and $C_{D^*}$, 2 for the ratio, 1 for why $I_a$ cancels.
+(b) 1.5 + 1.5. (c) 2 for the reciprocals and fit, 2 for $V_{\max}$ and $K_M$ with units.
+(d) 2 for the scaling argument, 2 for the integrated batch equation, 2 for 27.2 min.
+\end{grading}
+
+% =====================================================================
+\section*{Problem 3: Cumene decomposition (30 pts)}
+
+\subsection*{(a) Surface reaction limiting}
+\step{1}RLS rate law. The forward step is single-site; the reverse is P from the gas attacking B$\cdot$S:
+\[
+-r_C'=r_S=k_S\left(C_{\AS{C}}-\frac{P_PC_{\AS{B}}}{K_S}\right).
+\]
+\step{2}The fast steps are at equilibrium:
+\[
+\frac{r_{AD}}{k_A}=P_CC_v-\frac{C_{\AS{C}}}{K_C}\approx0\Rightarrow C_{\AS{C}}=K_CP_CC_v;\qquad
+\frac{r_D}{k_D}=C_{\AS{B}}-K_BP_BC_v\approx0\Rightarrow C_{\AS{B}}=K_BP_BC_v .
+\]
+\step{3}Substitute:
+$r_S=k_SC_v\left(K_CP_C-\dfrac{K_BP_BP_P}{K_S}\right)=k_SK_CC_v\left(P_C-\dfrac{P_BP_P}{K_P}\right)$, using $K_P=\dfrac{K_CK_S}{K_B}$.
+
+\step{4}Site balance (P is not adsorbed): $C_t=C_v+C_{\AS{C}}+C_{\AS{B}}=C_v(1+K_CP_C+K_BP_B)$.
+\begin{answer}
+\[
+-r_C'=\frac{k\left(P_C-P_BP_P/K_P\right)}{1+K_CP_C+K_BP_B},\qquad k=k_SK_CC_t
+\]
+There is no $P_P$ term in the denominator, because propylene does not adsorb.
+\end{answer}
+
+\subsection*{(b) Initial rates}
+Pure cumene feed: $P_B=P_P=0$ at the inlet.
+\begin{answer}
+\begin{itemize}[itemsep=1pt]
+\item Adsorption-limited: $-r_{C0}'=k_AC_tP_{C0}$, \textbf{linear}, with no levelling off.
+\item Surface-reaction-limited: $-r_{C0}'=\dfrac{kP_{C0}}{1+K_CP_{C0}}$, linear at low $P_{C0}$, then \textbf{levels off} at $k/K_C$.
+\item Desorption-limited: with $P_P=0$ the denominator is just $K_SK_CP_{C0}$, so $-r_{C0}'=k_DC_t$, \textbf{independent of $P_{C0}$}.
+With no propylene, B$\cdot$S cannot react back, the surface fills with B, and the rate is set by how fast B leaves.
+\end{itemize}
+\end{answer}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=9.5cm,height=5.6cm,xmin=0,xmax=10,ymin=0,ymax=2.2,axis lines=left,ticks=none,
+  xlabel={$P_{C0}$},ylabel={$-r_{C0}'$},legend style={font=\scriptsize,at={(1.02,0.5)},anchor=west,draw=none}]
+\addplot[very thick,black,domain=0:10]{0.2*x};\addlegendentry{adsorption-limited}
+\addplot[very thick,keyblue,domain=0:10,samples=60]{1.8*x/(1+x)};\addlegendentry{surface-rxn-limited}
+\addplot[very thick,warnred,domain=0:10]{1.0};\addlegendentry{desorption-limited}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{mistake}
+Writing the desorption-limited initial rate as proportional to $P_{C0}$. You must set $P_P=0$ \emph{before} simplifying: the
+$P_P$ terms vanish from the denominator, and $P_{C0}$ cancels.
+\end{mistake}
+
+\subsection*{(c) Identifying the RLS and its parameters}
+The rate rises and levels off, so the \textbf{surface reaction is rate-limiting}, as Fogler found for the real cumene data.
+Linearise: $\dfrac{P_{C0}}{-r_{C0}'}=\dfrac{1}{k}+\dfrac{K_C}{k}P_{C0}$.
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{lccccc}
 \toprule
-$1/C_S$ (L/mmol) & 1.00 & 0.50 & 0.20 & 0.10 & 0.05\\
-$1/(-r_S)$, no I (L$\cdot$min/mmol) & 3.00 & 1.75 & 1.00 & 0.75 & 0.625\\
-$1/(-r_S)$, with I & 4.00 & 2.75 & 2.00 & 1.75 & 1.63\\
+$P_{C0}$ (atm) & 0.5 & 1.0 & 2.0 & 4.0 & 8.0\\
+$P_{C0}/(-r_{C0}')$ (atm$\cdot$kg$\cdot$s/mol) & 3.0 & 4.0 & 6.0 & 10.0 & 18.0\\
 \bottomrule
 \end{tabular}
 \end{center}
-The uninhibited points lie on a straight line. Using the two end points:
-\[
-\text{slope}=\frac{3.00-0.625}{1.00-0.05}=2.50\ \text{min},\qquad
-\text{intercept}=0.625-2.50(0.05)=0.500\ \text{L$\cdot$min/mmol}.
-\]
-(Check with a middle point: $0.5+2.5(0.2)=1.00$. \checkmark)
+Slope $=\dfrac{18.0-3.0}{8.0-0.5}=2.0$ kg$\cdot$s/mol; \quad intercept $=3.0-2.0(0.5)=2.0$ atm$\cdot$kg$\cdot$s/mol.
 \begin{answer}
-$V_{\max}=1/0.500=$ \textbf{2.0 mmol/(L$\cdot$min)}; \quad $K_M=\text{slope}\times V_{\max}=2.50\times2.0=$ \textbf{5.0 mmol/L}.
+$k=1/2.0=$ \textbf{0.50 mol/(kg cat$\cdot$s$\cdot$atm)}; \quad $K_C=\text{slope}\times k=$ \textbf{1.0 atm$^{-1}$}.
 \end{answer}
-
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[width=10cm,height=6cm,axis lines=left,xmin=0,xmax=1.1,ymin=0,ymax=4.4,
-  xlabel={$1/C_S$ (L/mmol)},ylabel={$1/(-r_S)$ (L$\cdot$min/mmol)},
-  legend style={font=\scriptsize,at={(0.02,0.98)},anchor=north west}]
-\addplot[only marks,mark=*,keyblue] coordinates{(1,3)(0.5,1.75)(0.2,1)(0.1,0.75)(0.05,0.625)};
-\addlegendentry{no inhibitor}
-\addplot[keyblue,thick,domain=0:1.1]{0.5+2.5*x};
-\addlegendentry{$0.5+2.5/C_S$}
-\addplot[only marks,mark=square*,warnred] coordinates{(1,4)(0.5,2.75)(0.2,2)(0.1,1.75)(0.05,1.626)};
-\addlegendentry{$C_I=4$ mmol/L}
-\addplot[warnred,thick,domain=0:1.1]{1.5+2.5*x};
-\addlegendentry{$1.5+2.5/C_S$ (parallel)}
+\begin{axis}[width=8cm,height=5cm,axis lines=left,xmin=0,xmax=9,ymin=0,ymax=20,
+  xlabel={$P_{C0}$ (atm)},ylabel={$P_{C0}/(-r_{C0}')$}]
+\addplot[only marks,mark=*,keyblue] coordinates{(0.5,3)(1,4)(2,6)(4,10)(8,18)};
+\addplot[thick,keyblue,domain=0:9]{2+2*x};
+\node[font=\scriptsize,anchor=west] at (axis cs:0.3,1.2) {intercept $1/k=2.0$};
+\node[font=\scriptsize,anchor=west] at (axis cs:4.5,16) {slope $K_C/k=2.0$};
 \end{axis}
 \end{tikzpicture}
 \end{center}
 
-\subsection*{(c) Type of inhibition and $K_I$}
-With the inhibitor: slope $=\dfrac{4.00-1.63}{0.95}=2.50$ (unchanged) and intercept $=4.00-2.50=1.50$ (tripled).
-\begin{answer}
-The slope is unchanged and the intercept goes up, so this is \textbf{uncompetitive} inhibition.
-$1+\dfrac{C_I}{K_I}=\dfrac{1.50}{0.50}=3\;\Rightarrow\;K_I=\dfrac{C_I}{2}=$ \textbf{2.0 mmol/L}.
-\end{answer}
-
-\subsection*{(d) Batch reactor}
-Mole balance at constant volume: $\dfrac{dC_S}{dt}=r_S$. Write $\phi=1+C_I/K_I$ ($\phi=1$ with no inhibitor):
+\subsection*{(d) Fluidised CSTR}
+\step{1}Stoichiometry: pure C, \ce{C -> B + P}: $\delta=1$, $\varepsilon=1$. Isothermal, no $\Delta P$:
 \[
-\frac{dC_S}{dt}=-\frac{V_{\max}C_S}{K_M+\phi C_S}
-\;\Rightarrow\;
--\int_{C_{S0}}^{C_S}\left(\frac{K_M}{C_S}+\phi\right)dC_S=V_{\max}t
-\;\Rightarrow\;
-K_M\ln\frac{C_{S0}}{C_S}+\phi\,(C_{S0}-C_S)=V_{\max}t .
+P_C=P_0\frac{1-X}{1+X}=3\cdot\frac{0.5}{1.5}=1.0\ \text{atm},\qquad P_B=P_P=P_0\frac{X}{1+X}=1.0\ \text{atm}.
 \]
-With $C_S=C_{S0}(1-X)$:
-\[
-t=\frac{K_M}{V_{\max}}\ln\frac{1}{1-X}+\frac{\phi\,C_{S0}X}{V_{\max}}.
-\]
-(i) No inhibitor, $\phi=1$: $t=\dfrac{5.0}{2.0}\ln10+\dfrac{(20)(0.9)}{2.0}=5.76+9.00=14.8$ min.
+\step{2}Exit rate (irreversible form):
+$-r_C'=\dfrac{kP_C}{1+K_CP_C+K_BP_B}=\dfrac{0.5(1.0)}{1+1.0+1.0}=0.167$ mol/(kg$\cdot$s).
 
-(ii) With inhibitor, $\phi=3$: $t=5.76+3(9.00)=5.76+27.0=32.8$ min.
+\step{3}$W=\dfrac{F_{C0}X}{-r_C'}=\dfrac{(10)(0.5)}{0.167}=30$ kg.
 \begin{answer}
-$t=14.8$ min without inhibitor and $t=32.8$ min with inhibitor.
-Only the zero-order (saturated) term is multiplied by $\phi$. When $C_S$ is small, most of the enzyme is free E, and an
-uncompetitive inhibitor can bind only E$\cdot$S, so the low-$C_S$ (first-order) rate $V_{\max}C_S/K_M$ is unaffected.
+$W=$ \textbf{30 kg}. Ignoring benzene: $-r_C'=0.5/2=0.25$, so $W=20$ kg, an underestimate by a \textbf{factor of 1.5}.
+Benzene, the product, occupies sites that cumene needs (product inhibition). The CSTR runs entirely at the exit composition,
+where $P_B$ is high, so the effect is large.
 \end{answer}
 \begin{mistake}
-Using the CSTR equation, or plugging the \emph{initial} rate into $t=C_{S0}X/(-r_S)$. A batch reactor must be integrated.
-For a competitive inhibitor it would be the $\ln$ term that is multiplied by $\phi$ instead.
+Using $P_C=P_0(1-X)$ (that is, $\varepsilon=0$). One mole of gas becomes two, so the mole fraction of cumene is diluted
+by the factor $1+X$.
 \end{mistake}
 
 \begin{grading}
-(a) 2 for the complexes in terms of $C_E$, 2 for the enzyme balance, 1 for the rate law, 1 for the L--B form and its
-interpretation. (b) 2 for the reciprocals, 1 for the slope and intercept, 2 for $V_{\max}$ and $K_M$ with units.
-(c) 2 for the type with a reason, 2 for $K_I$. (d) 2 for the derivation, 1 + 1 for the times, 1 for the explanation.
-Answers within $\pm3\%$ from reading a hand-drawn line are full credit.
+(a) 2 for the RLS rate law with the reverse term, 3 for the equilibrium expressions, 2 for the site balance, 1 for the final form.
+(b) 1 for each initial rate, 3 for the sketch.
+(c) 2 for the identification with a reason, 3 for the linearisation and table, 3 for $k$ and $K_C$ with units.
+(d) 3 for $\varepsilon$ and the partial pressures, 2 for the rate, 2 for $W$, 1 for the factor 1.5 with the reason.
 \end{grading}
 
 % =====================================================================
-\section*{Problem 4: Catalytic dehydration (40 pts)}
+\section*{Problem 4: CVD of germanium (25 pts)}
 
-\subsection*{(a) Surface reaction rate-limiting}
-\step{1}RLS (irreversible, dual site, needs a vacant neighbour): $-r_A'=r_S=k_SC_{\AS{A}}C_v$.
+\subsection*{(a) Deposition rate}
+\step{1}RLS: $r''_{\text{Dep}}=k_Sf_{\mathrm{GeCl_2}}f_{\mathrm{H}}^2$.
 
-\step{2}Fast steps at equilibrium:
+\step{2}GeCl$_2$ adsorption at equilibrium:
 \[
-\frac{r_{AD}}{k_A}=P_AC_v-\frac{C_{\AS{A}}}{K_A}\approx0\Rightarrow C_{\AS{A}}=K_AP_AC_v;\qquad
-C_{\AS{B}}=K_BP_BC_v;\qquad C_{\AS{W}}=K_WP_WC_v .
+r_{AD}=k_A\left(f_vP_{\mathrm{GeCl_2}}-\frac{f_{\mathrm{GeCl_2}}}{K_A}\right)\approx0\;\Rightarrow\; f_{\mathrm{GeCl_2}}=K_AP_{\mathrm{GeCl_2}}f_v .
 \]
-\step{3}Site balance:
-$C_t=C_v+C_{\AS{A}}+C_{\AS{B}}+C_{\AS{W}}=C_v\left(1+K_AP_A+K_BP_B+K_WP_W\right)$.
 
-\step{4}Substitute: $r_S=k_SK_AP_AC_v^2$.
+\step{3}Dissociative H$_2$ adsorption at equilibrium (two sites in, two H atoms out):
+\[
+r_{AD,\mathrm{H_2}}=k_H\left(P_{\mathrm{H_2}}f_v^2-\frac{f_{\mathrm{H}}^2}{K_H}\right)\approx0\;\Rightarrow\; f_{\mathrm{H}}=\sqrt{K_HP_{\mathrm{H_2}}}\,f_v .
+\]
+
+\step{4}Substitute: $r''_{\text{Dep}}=k_SK_AK_HP_{\mathrm{GeCl_2}}P_{\mathrm{H_2}}f_v^3$.
+
+\step{5}Area balance: $1=f_v+f_{\mathrm{GeCl_2}}+f_{\mathrm{H}}=f_v\left(1+K_AP_{\mathrm{GeCl_2}}+\sqrt{K_HP_{\mathrm{H_2}}}\right)$.
 \begin{answer}
 \[
--r_A'=\frac{k\,P_A}{\left(1+K_AP_A+K_BP_B+K_WP_W\right)^2},\qquad k=k_SK_AC_t^2 .
+r''_{\text{Dep}}=\frac{k'P_{\mathrm{GeCl_2}}P_{\mathrm{H_2}}}{\left(1+K_AP_{\mathrm{GeCl_2}}+\sqrt{K_HP_{\mathrm{H_2}}}\right)^3},\qquad k'=k_SK_AK_H
 \]
+(Fogler Eq.~10-90.)
 \end{answer}
 
-\subsection*{(b) Adsorption of A rate-limiting}
-\step{1}RLS: $-r_A'=r_{AD}=k_A\left(P_AC_v-\dfrac{C_{\AS{A}}}{K_A}\right)$.
-
-\step{2}The surface reaction is fast and irreversible: $\dfrac{r_S}{k_S}=C_{\AS{A}}C_v\approx0\Rightarrow C_{\AS{A}}\approx0$.
-Every A that adsorbs reacts immediately, so A does not accumulate on the surface. B and W are still at desorption equilibrium:
-$C_{\AS{B}}=K_BP_BC_v$, $C_{\AS{W}}=K_WP_WC_v$.
-
-\step{3}Site balance: $C_t=C_v(1+K_BP_B+K_WP_W)$.
+\subsection*{(b) In terms of GeCl$_4$}
+The gas-phase equilibrium gives $K_P=\dfrac{P_{\mathrm{GeCl_2}}P_{\mathrm{Cl_2}}}{P_{\mathrm{GeCl_4}}}$, so
+$P_{\mathrm{GeCl_2}}=\dfrac{K_PP_{\mathrm{GeCl_4}}}{P_{\mathrm{Cl_2}}}$. Substitute, then multiply the top and bottom by $P_{\mathrm{Cl_2}}^3$:
 \begin{answer}
 \[
--r_A'=\frac{k_AC_tP_A}{1+K_BP_B+K_WP_W}.
+r''_{\text{Dep}}=\frac{k'K_P\,P_{\mathrm{GeCl_4}}P_{\mathrm{H_2}}P_{\mathrm{Cl_2}}^2}{\left[P_{\mathrm{Cl_2}}\left(1+\sqrt{K_HP_{\mathrm{H_2}}}\right)+K_AK_PP_{\mathrm{GeCl_4}}\right]^3}
 \]
-Initial rates ($P_B=P_W=0$): case (a) $-r_{A0}'=\dfrac{kP_{A0}}{(1+K_AP_{A0})^2}$; \quad case (b) $-r_{A0}'=k_AC_tP_{A0}$ (linear).
+If H$_2$ is weakly adsorbed this becomes $\dfrac{kP_{\mathrm{GeCl_4}}P_{\mathrm{H_2}}P_{\mathrm{Cl_2}}^2}{(P_{\mathrm{Cl_2}}+K_AK_PP_{\mathrm{GeCl_4}})^3}$
+(Fogler Eq.~10-91).
+\textbf{Effect of Cl$_2$:} by Le Chatelier, Cl$_2$ pushes the gas-phase equilibrium back towards GeCl$_4$, which lowers
+$P_{\mathrm{GeCl_2}}$, the species that actually adsorbs and deposits. At low GeCl$_2$ coverage the rate goes as $1/P_{\mathrm{Cl_2}}$.
 \end{answer}
-\begin{mistake}
-Writing $C_{\AS{A}}=C_{\AS{B}}/K_S$ as in the reversible Example 2 of Lec.~8. For an irreversible fast step, there is no
-equilibrium constant, and the fast consumption drives $C_{\AS{A}}\to0$.
-\end{mistake}
 
-\subsection*{(c) Model discrimination and parameters}
-The rate rises, passes through a maximum at $P_{A0}=2$ atm, then falls. Only the dual-site surface-reaction law (a)
-has a maximum; case (b) is a straight line. \textbf{So (a) is consistent.}
-
-Linearise (a): $\dfrac{P_{A0}}{-r_{A0}'}=\dfrac{(1+K_AP_{A0})^2}{k}\;\Rightarrow\;
-\sqrt{\dfrac{P_{A0}}{-r_{A0}'}}=\dfrac{1}{\sqrt k}+\dfrac{K_A}{\sqrt k}P_{A0}$.
-
-\begin{center}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{lccccc}
-\toprule
-$P_{A0}$ (atm) & 0.5 & 1.0 & 2.0 & 4.0 & 8.0\\
-$P_{A0}/(-r_{A0}')$ & 3.125 & 4.505 & 8.000 & 18.02 & 50.00\\
-$\sqrt{P_{A0}/(-r_{A0}')}$ & 1.768 & 2.122 & 2.828 & 4.245 & 7.071\\
-\bottomrule
-\end{tabular}
-\end{center}
+\subsection*{(c) Optimum GeCl$_2$ pressure}
+Let $a=1+\sqrt{K_HP_{\mathrm{H_2}}}=2.0$ and $P=P_{\mathrm{GeCl_2}}$, so $r''\propto\dfrac{P}{(a+K_AP)^3}$.
 \[
-\text{slope}=\frac{7.071-1.768}{8.0-0.5}=0.7071,\qquad \text{intercept}=1.768-0.7071(0.5)=1.414 .
+\frac{d}{dP}\left[\frac{P}{(a+K_AP)^3}\right]=\frac{(a+K_AP)-3K_AP}{(a+K_AP)^4}=0
+\;\Rightarrow\;
+P^*=\frac{a}{2K_A}=\frac{2.0}{2(4.0)}.
 \]
 \begin{answer}
-$k=\dfrac{1}{(1.414)^2}=$ \textbf{0.50 mol/(kg cat$\cdot$s$\cdot$atm)}, \quad $K_A=\text{slope}\times\sqrt k=0.7071\times0.7071=$ \textbf{0.50 atm$^{-1}$}.
-Check: the maximum should be at $1/K_A=2$ atm with $-r'_{\max}=k/(4K_A)=0.25$, exactly as measured. \checkmark
+$P^*_{\mathrm{GeCl_2}}=$ \textbf{0.25 atm}. Apparent order in GeCl$_2$: \textbf{$+1$} at low pressure ($K_AP\ll a$), and
+\textbf{$-2$} at high pressure ($r''\propto P/P^3$). Beyond $P^*$, GeCl$_2$ crowds out the H atoms it needs as reaction partners.
 \end{answer}
-
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[width=8.5cm,height=5.4cm,axis lines=left,xmin=0,xmax=9,ymin=0,ymax=8,
-  xlabel={$P_{A0}$ (atm)},ylabel={$\sqrt{P_{A0}/(-r_{A0}')}$}]
-\addplot[only marks,mark=*,keyblue] coordinates{(0.5,1.768)(1,2.122)(2,2.828)(4,4.245)(8,7.071)};
-\addplot[thick,keyblue,domain=0:9]{1.414+0.7071*x};
-\node[font=\scriptsize,anchor=west] at (axis cs:0.2,0.9) {intercept $1/\sqrt k=1.414$};
-\node[font=\scriptsize,anchor=west] at (axis cs:3.5,6.4) {slope $K_A/\sqrt k=0.707$};
+\begin{axis}[width=8cm,height=4.8cm,axis lines=left,xmin=0,xmax=1.5,ymin=0,ymax=0.011,
+  xlabel={$P_{\mathrm{GeCl_2}}$ (atm)},ylabel={$r''_{\text{Dep}}$ (arb.)},yticklabels={},
+  scaled y ticks=false]
+\addplot[very thick,keyblue,domain=0:1.5,samples=100]{x/(2+4*x)^3};
+\addplot[dashed] coordinates{(0.25,0)(0.25,0.00926)};
+\node[font=\scriptsize,anchor=west] at (axis cs:0.28,0.0098) {$P^*=0.25$ atm};
 \end{axis}
 \end{tikzpicture}
 \end{center}
 
-\subsection*{(d) Fluidised-bed CSTR}
-\step{1}Stoichiometry. Pure A, \ce{A -> B + W}: $\delta=1+1-1=1$, $\varepsilon=y_{A0}\delta=1$. Isothermal, no $\Delta P$:
-\[
-P_A=P_0\frac{1-X}{1+X}.
-\]
-\step{2}With weak product adsorption, the rate is $-r_A'=\dfrac{kP_A}{(1+K_AP_A)^2}$, evaluated at the \textbf{exit} (CSTR).
-
-(i) $P_0=2$ atm, $X=0.5$: $P_A=2(0.5)/1.5=0.667$ atm.
-\[
--r_A'=\frac{0.5(0.667)}{(1+0.333)^2}=\frac{0.3333}{1.778}=0.1875\ \text{mol/(kg$\cdot$s)},\qquad
-W=\frac{F_{A0}X}{-r_A'}=\frac{(10)(0.5)}{0.1875}.
-\]
+\subsection*{(d) Concepts}
 \begin{answer}
-(i) $W=$ \textbf{26.7 kg}.
-\end{answer}
-
-(ii) $W=F_{A0}X/(-r_A')_{\text{exit}}$, so the minimum $W$ needs the maximum exit rate. From (c), the rate is largest at
-$P_A=1/K_A=2$ atm, where $-r_A'=k/(4K_A)=0.25$ mol/(kg$\cdot$s). The exit $P_A=2$ atm at $X=0.5$ requires
-\[
-P_0=P_A\frac{1+X}{1-X}=2\cdot\frac{1.5}{0.5}=6\ \text{atm},\qquad W_{\min}=\frac{(10)(0.5)}{0.25}=20.0\ \text{kg}.
-\]
-\begin{answer}
-(ii) $P_0=$ \textbf{6 atm} and $W_{\min}=$ \textbf{20.0 kg}. At higher pressure (e.g.\ $P_0=12$ atm, so $P_A=4$ atm,
-$-r_A'=0.222$, $W=22.5$ kg) adsorbed A crowds the surface. The dual-site step needs a \emph{vacant} neighbouring site,
-and $C_v$ falls faster than $C_{\AS{A}}$ rises, so the rate drops.
-\end{answer}
-
-\subsection*{(e) Deactivation}
-(i) Second-order sintering: $a=\dfrac{1}{1+k_dt}=\dfrac{1}{1+(0.0125)(80)}=0.50$.
-With the same $P_0$ and $X$, the exit $P_A$ (and hence the fresh rate) is unchanged, and $W=\dfrac{F_{A0}X}{a(-r_A')_{\text{fresh}}}$
-is fixed. So $F_{A0}$ must scale with $a$:
-\[
-F_{A0}(80\ \text{h})=a\,F_{A0}(0)=0.5\times10=5.0\ \text{mol/s}.
-\]
-(ii) Keep $F_{A0}$, so the same rate is needed: $a\,k(T)=k(T_0)$:
-\[
-\exp\!\left[\frac{E}{R}\left(\frac{1}{T_0}-\frac{1}{T}\right)\right]=\frac{1}{a}=2
-\;\Rightarrow\;
-\frac{1}{T}=\frac{1}{500}-\frac{8.314\ln2}{80{,}000}=0.002000-0.0000720=0.0019280\ \text{K}^{-1}.
-\]
-\begin{answer}
-(i) $a=0.50$ and $F_{A0}=$ \textbf{5.0 mol/s}. \quad (ii) $T=$ \textbf{518.7 K} (an increase of about 19 K).
-
-(iii) Sintering is activated ($k_d$ grows exponentially with $T$, $E_d\approx30$--150 kJ/mol), so the higher $T$ makes the
-catalyst decay faster, which then needs an even higher $T$. Also acceptable: adsorption is exothermic, so $K_A$ falls
-with $T$; side reactions or coking speed up; or there are material and selectivity limits.
+\begin{enumerate}[label=(\roman*),itemsep=1pt]
+\item The RLS needs \textbf{three} sites at once (one GeCl$_2\cdot$S and two H$\cdot$S), so the rate contains $f_v^3$, and the
+area balance turns that into a cubed denominator.
+\item H$_2$ adsorbs \textbf{dissociatively} into two H atoms, so $f_{\mathrm{H}}^2\propto P_{\mathrm{H_2}}f_v^2$, giving $f_{\mathrm{H}}\propto\sqrt{P_{\mathrm{H_2}}}$.
+\item Three occupied sites react, and two vacant sites are released, but the newly deposited Ge atom is \textbf{itself a new
+surface site}: three sites before, three after. The area balance stays valid as the film grows.
+\end{enumerate}
 \end{answer}
 \begin{mistake}
-Using $a=e^{-k_dt}$ (first order) gives $a=0.37$. The problem states second-order decay. Also, $k(T)$ must increase by
-the factor $1/a$, not by $a$.
+(1) $f_{\mathrm{H}}=K_HP_{\mathrm{H_2}}f_v$ (no square root). (2) A squared denominator (counting two sites instead of three).
+(3) Writing the rate in terms of GeCl$_4$ directly: GeCl$_4$ never adsorbs, only GeCl$_2$ does.
 \end{mistake}
 
 \begin{grading}
-(a) 2 for the RLS rate law with $C_v$, 3 for the fast-step equilibria, 2 for the site balance, 1 for the final form.
-(b) 2 for $C_{\AS{A}}\approx0$ with a reason, 2 for the rate law, 2 for both initial rates.
-(c) 2 for the discrimination argument, 2 for the linearisation, 3 for the table and line, 2 for $k$ and $K_A$.
-(d) 2 for $\varepsilon$ and $P_A(X)$, 3 for (i), 3 for (ii), 1 for the physical reason.
-(e) 3 for (i), 3 for (ii), 2 for (iii).
+(a) 2 for the RLS rate, 2 for $f_{\mathrm{GeCl_2}}$, 3 for $f_{\mathrm{H}}$ with the square root, 2 for the area balance, 1 for the final form.
+(b) 3 for the substitution, 2 for the Cl$_2$ explanation.
+(c) 3 for the derivative and $P^*$, 1 for the number, 2 for both orders.
+(d) 1 + 1 + 2.
 \end{grading}
 
 \end{document}
