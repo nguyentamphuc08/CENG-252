@@ -11,5 +11,5 @@ Langmuir–Hinshelwood catalysis, catalytic reactors and catalyst deactivation).
 | File | Contents |
 |---|---|
 | `CENG252_Study_Notes_L6-L10.tex/.pdf` | Study notes with step-by-step derivations, recreated slide figures, slide-typo corrections, and a 2-page formula summary |
-| `Practice_Midterm2.tex/.pdf` | 4-problem, 100-point, 80-minute practice exam with a provided formula sheet |
+| `Practice_Midterm2.tex/.pdf` | 4-problem, 100-point, 80-minute practice exam built from the instructor's Midterm 2 announcement: energy balance (Ch. 11), Ch. 9 examples, cumene decomposition (§10.3) and CVD (§10.5.2); sized for about 65 minutes of work plus 15 minutes of checking |
 | `Practice_Midterm2_Solutions.tex/.pdf` | Full worked solutions, common mistakes, and grading guides |
