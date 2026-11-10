@@ -1202,7 +1202,7 @@ Use the same design equations as in Lectures 1--5, written per mass of catalyst 
 \text{PBR: } F_{A0}\frac{dX}{dW}=-r_A',\qquad
 \text{CSTR / fluidised bed: } W=\frac{F_{A0}X}{(-r_A')_{\text{exit}}}.
 \]
-Stoichiometry for gases: $P_A=C_ART=P_{A0}\dfrac{1-X}{1+\varepsilon X}\,y\,\dfrac{T_0}{T}$, and similarly
+Stoichiometry for gases: $C_A=C_{A0}\dfrac{1-X}{1+\varepsilon X}\,y\,\dfrac{T_0}{T}$, so $P_A=C_ART=P_{A0}\dfrac{1-X}{1+\varepsilon X}\,y$ (the temperature cancels), and similarly
 $P_B=P_{A0}\dfrac{\Theta_B+(b/a)X}{1+\varepsilon X}\,y$, etc.
 
 \textbf{Worked case (PBR, analytic).} $-r_A'=\dfrac{kP_A}{1+K_AP_A}$, pure A with $\varepsilon=0$ (\ce{A -> B}), isothermal, $y=1$:
@@ -1586,7 +1586,7 @@ C_{\AS{A}}=\frac{K_AP_AC_t}{1+K_AP_A},\qquad C_{\AS{A}}=\frac{\sqrt{K_AP_A}\,C_t
 \textbf{Eley--Rideal.} $\dfrac{k(P_AP_B-P_C/K_P)}{1+K_AP_A+K_CP_C}$ (B not in the denominator).
 
 \textbf{Catalytic design.} PBR $F_{A0}\frac{dX}{dW}=-r_A'$; CSTR $W=\frac{F_{A0}X}{-r_A'}$;
-$P_A=P_{A0}\frac{(1-X)}{1+\varepsilon X}y\frac{T_0}{T}$.
+$C_A=C_{A0}\frac{1-X}{1+\varepsilon X}y\frac{T_0}{T}$, $P_A=P_{A0}\frac{1-X}{1+\varepsilon X}y$.
 
 \textbf{Deactivation.} $-r_A'=a(t)(-r_A')_{\text{fresh}}$; $-\frac{da}{dt}=k_da^n$.
 \begin{itemize}[leftmargin=*]
